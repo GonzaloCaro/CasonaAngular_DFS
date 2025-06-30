@@ -1,0 +1,55 @@
+.contact-us-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.contact-input-container {
+  display: flex;
+  align-items: center;
+  .label-input {
+    margin-right: 10px;
+    color: white;
+  }
+  .contact-input {
+    font-family: sans-serif;
+    border-radius: 16px;
+  }
+}
+
+.description {
+  margin-top: 10px;
+  display: flex;
+  font-size: 1.2rem;
+  .label-textarea {
+    margin-right: 10px;
+  }
+  .contact-textarea {
+    resize: none;
+    width: 100%;
+    border-radius: 16px;
+  }
+}
+
+.btn {
+  background-color: black;
+  border: none;
+  border-radius: 16px;
+  &:hover {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+  }
+}
+
+.contact-us-card {
+  width: fit-content;
+  margin-top: 2rem;
+  background-color: var(--dark-green);
+  border-radius: 16px;
+  border: 2px solid var(--dark-green);
+  box-shadow: -13px 12px 31px -11px black;
+  padding: 10px;
+  color: white;
+}

@@ -1,0 +1,103 @@
+<div class="container ticket-container my-5" *ngIf="carrito.length > 0">
+  <div class="card event-detail-card mb-4">
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <img [src]="carrito[0].imagen" class="card-img" alt="Evento" />
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h2 class="card-title">{{ carrito[0].nombre }}</h2>
+          <p class="card-text">{{ carrito[0].fecha }}</p>
+          <p class="card-text">{{ carrito[0].descripcion }}</p>
+          <p class="card-text">Lugar: Casona Encantada</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="ticket-selection-card">
+      <div class="card-header">
+        <h4>Tu Entrada</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="ticketType" class="pb-2">Tipo de Entrada</label>
+          <select
+            class="form-control input"
+            id="ticketType"
+            [(ngModel)]="carrito[0].tipo_entrada"
+            (change)="cambiarTipoEntrada(carrito[0].tipo_entrada)"
+          >
+            <option *ngFor="let tipo of tiposEntrada" [value]="tipo.nombre">
+              {{ tipo.nombre }} - ${{ tipo.precio | number }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ticketQuantity" class="pb-2">Cantidad</label>
+          <div class="input-group count">
+            <div class="input-group-prepend">
+              <button
+                class="btn btn-outline-secondary bg-red-500"
+                type="button"
+                (click)="actualizarCantidad(-1)"
+                [disabled]="carrito[0].cantidad <= 1"
+              >
+                -
+              </button>
+            </div>
+            <input
+              id="ticketQuantity"
+              type="number"
+              class="form-control input text-center"
+              [(ngModel)]="carrito[0].cantidad"
+              min="1"
+              max="10"
+              readonly
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="actualizarCantidad(1)"
+                [disabled]="carrito[0].cantidad >= 10"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="total-container mb-3 py-1">
+          <h5>
+            Total: <span>${{ total | number }}</span>
+          </h5>
+        </div>
+
+        <div class="buttons">
+          <button
+            type="button"
+            class="bg-red-500 p-1 px-3 rounded-full"
+            placement="bottom"
+            ngbTooltip="Vaciar Carrito"
+            (click)="vaciarCarrito()"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="btn btn-purchase" (click)="comprar()">
+            Continuar al Pago
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container ticket-container my-5" *ngIf="carrito.length === 0">
+  <div class="alert alert-info text-center">
+    <h4>Tu carrito está vacío</h4>
+    <p>Agrega entradas desde los eventos disponibles</p>
+    <a routerLink="/" class="btn btn-primary">Ver Eventos</a>
+  </div>
+</div>

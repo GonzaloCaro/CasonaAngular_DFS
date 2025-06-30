@@ -1,0 +1,26 @@
+<div class="carousel-container">
+  <div class="carousel-title">
+    <label class="text-5xl py-4">Eventos Pasados</label>
+  </div>
+  <div class="carousel-element">
+    <ngb-carousel
+      #carousel
+      [interval]="3000"
+      [pauseOnHover]="pauseOnHover"
+      [pauseOnFocus]="pauseOnFocus"
+      (slide)="onSlide($event)"
+      [showNavigationArrows]="true"
+      [showNavigationIndicators]="true"
+      class="carouse-item"
+    >
+      <ng-template ngbSlide *ngFor="let expos of exposPasadas; let i = index">
+        <div class="carousel-image-container">
+          <img [src]="expos.src" [alt]="expos.title" class="d-block w-100" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{ expos.title }}</h3>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container mt-5" *ngIf="inicializado">
+  <div class="d-flex justify-content-center gap-3 mb-4">
+    <button class="btn btn-primary" (click)="mostrarPanel('usuarios')">
+      Usuarios
+    </button>
+    <button class="btn btn-secondary" (click)="mostrarPanel('eventos')">
+      Eventos
+    </button>
+  </div>
+
+  <!-- Tabla de usuarios -->
+  <div *ngIf="mostrarUsuarios">
+    <h2 class="text-center mb-4">Administrar Usuarios</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Tipo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.tipo }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="eliminarUsuario(usuario.email)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabla de eventos -->
+  <div *ngIf="!mostrarUsuarios">
+    <h2 class="text-center mb-4">Administrar Eventos</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Tipo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.tipo }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="eliminarUsuario(usuario.email)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

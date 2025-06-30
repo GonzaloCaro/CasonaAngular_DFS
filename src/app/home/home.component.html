@@ -1,0 +1,30 @@
+<main class="max-w-full! font-casona bg-[#8a9869] p-4">
+  <section class="text-center">
+    <h1 class="mb-3">Bienvenido a Casona Encantada</h1>
+  </section>
+
+  <section id="next_events" class="next_events">
+    <app-card-loader></app-card-loader>
+  </section>
+  <section id="previous_events" class="previous_events">
+    <app-carousel-images></app-carousel-images>
+  </section>
+  <section id="about_us" class="about_us">
+    <app-about-us></app-about-us>
+  </section>
+  <section id="contact_us" class="contact_us">
+    <app-contact-us></app-contact-us>
+  </section>
+  <button
+    class="fixed bottom-2 right-7 h-12"
+    placement="left"
+    ngbTooltip="Volver arriba"
+    onclick="window.location.href='#navbar'"
+  >
+    <i class="bi-arrow-up-short hover:bg-black rounded-full hover:text-white"></i>
+  </button>
+</main>
+
+<footer class="bg-dark text-white text-center py-3 font-casona">
+  <p class="mb-0">&copy; Casona Encantada - Todos los derechos reservados.</p>
+</footer>

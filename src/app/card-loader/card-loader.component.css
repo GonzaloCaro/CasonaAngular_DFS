@@ -1,0 +1,40 @@
+.images-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+.card {
+  max-width: 250px;
+  background-color: var(--primary-beige);
+  border-radius: 16px;
+}
+
+.card:hover {
+  box-shadow: -13px 12px 31px -11px var(--primary-beige);
+}
+.card .image-card {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card .btn-purchase {
+  background-color: var(--primary-black);
+  color: white;
+  border: none;
+}
+.card .btn-purchase:hover {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+}

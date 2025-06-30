@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "casona";
+  src: url("./assets/fonts/EFCO_Brookshire_Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Aquí definimos variables CSS reutilizables. Muy útil para mantener colores, fuentes, etc. */
+  --color-principal: #1f1f1f; /* Texto principal oscuro */
+  --color-secundario: #ff3c38; /* Color de acento (puede ser usado en botones, destacados) */
+  --fondo: #f3f3f3; /* Fondo general de la página */
+  --primary-green: #8a9869;
+  --secondary-green: #a5b78c;
+  --dark-green: #4a5a36;
+  --primary-black: #0e0e0e;
+  --primary-white: #fdfdfd;
+  --primary-beige: #ead2b3;
+}
+
+main,
+body {
+  font-family: "casona", sans-serif;
+  background-color: #8a9869 !important;
+  color: var(--color-principal);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+/* Responsive design: adapta el diseño a pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .categorias {
+    flex-direction: column; /* En celulares, mostrar tarjetas en columna */
+    align-items: center; /* Centrar verticalmente */
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
