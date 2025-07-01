@@ -1,0 +1,1113 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/navbar/navbar.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de barra de navegación principal</p>
+<p>Muestra diferentes opciones según el estado de autenticación y rol del usuario.
+Responsable de:</p>
+<ul>
+<li>Mostrar/ocultar elementos según sesión</li>
+<li>Manejar el cierre de sesión</li>
+<li>Redirigir al usuario según sus permisos</li>
+</ul>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;!-- Uso básico --&gt;
+&lt;app-navbar&gt;&lt;/app-navbar&gt;</code></pre></div>
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./navbar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#sesion" >sesion</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cerrarSesion" >cerrarSesion</a>
+                            </li>
+                            <li>
+                                <a href="#estaLogueado" >estaLogueado</a>
+                            </li>
+                            <li>
+                                <a href="#getSesion" >getSesion</a>
+                            </li>
+                            <li>
+                                <a href="#isAdmin" >isAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadUsers" >loadUsers</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscribeToSessionChanges" >subscribeToSessionChanges</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/navbar/navbar.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de autenticación</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de navegación</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarSesion"></a>
+                    <span class="name">
+                        <span ><b>cerrarSesion</b></span>
+                        <a href="#cerrarSesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarSesion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra la sesión actual y redirige al inicio</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estaLogueado"></a>
+                    <span class="name">
+                        <span ><b>estaLogueado</b></span>
+                        <a href="#estaLogueado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>estaLogueado()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica si hay un usuario autenticado</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si hay sesión activa, false en caso contrario</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSesion"></a>
+                    <span class="name">
+                        <span ><b>getSesion</b></span>
+                        <a href="#getSesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSesion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los datos de sesión desde localStorage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Datos de la sesión o null si no existe</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAdmin"></a>
+                    <span class="name">
+                        <span ><b>isAdmin</b></span>
+                        <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAdmin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica si el usuario actual es administrador</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si es admin, false si es usuario normal o no hay sesión</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUsers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadUsers</b></span>
+                        <a href="#loadUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los usuarios desde localStorage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inicializa el componente y suscribe a cambios de sesión</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribeToSessionChanges"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subscribeToSessionChanges</b></span>
+                        <a href="#subscribeToSessionChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>subscribeToSessionChanges()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/navbar/navbar.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suscribe a cambios en el estado de autenticación</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sesion"></a>
+                    <span class="name">
+                        <span ><b>sesion</b></span>
+                        <a href="#sesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/navbar/navbar.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Datos de la sesión actual del usuario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/navbar/navbar.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de usuarios registrados (solo para uso interno)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../services/auth.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Componente de barra de navegación principal
+ *
+ * Muestra diferentes opciones según el estado de autenticación y rol del usuario.
+ * Responsable de:
+ * - Mostrar/ocultar elementos según sesión
+ * - Manejar el cierre de sesión
+ * - Redirigir al usuario según sus permisos
+ *
+ * @example
+ * &lt;!-- Uso básico --&gt;
+ * &lt;app-navbar&gt;&lt;/app-navbar&gt;
+ */
+@Component({
+  selector: &#x27;app-navbar&#x27;,
+  templateUrl: &#x27;./navbar.component.html&#x27;,
+  styleUrls: [&#x27;./navbar.component.css&#x27;],
+})
+export class NavbarComponent implements OnInit {
+  /**
+   * Datos de la sesión actual del usuario
+   * @type {any}
+   */
+  sesion: any &#x3D; null;
+
+  /**
+   * Lista de usuarios registrados (solo para uso interno)
+   * @type {any}
+   * @private
+   */
+  usuarios: any;
+
+  /**
+   * Constructor del componente
+   * @param auth Servicio de autenticación
+   * @param router Servicio de navegación
+   */
+  constructor(private auth: AuthService, private router: Router) {}
+
+  /**
+   * Inicializa el componente y suscribe a cambios de sesión
+   */
+  ngOnInit(): void {
+    this.subscribeToSessionChanges();
+    this.loadUsers();
+  }
+
+  /**
+   * Suscribe a cambios en el estado de autenticación
+   * @private
+   */
+  private subscribeToSessionChanges(): void {
+    this.auth.sesion$.subscribe((sesion) &#x3D;&gt; {
+      this.sesion &#x3D; sesion;
+      // Debug: Verificar tipo de usuario en consola
+      console.log(&#x27;Usuario es admin:&#x27;, sesion?.tipo !&#x3D;&#x3D; &#x27;usuario&#x27;);
+    });
+  }
+
+  /**
+   * Carga los usuarios desde localStorage
+   * @private
+   */
+  private loadUsers(): void {
+    this.usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+  }
+
+  /**
+   * Obtiene los datos de sesión desde localStorage
+   * @returns {any} Datos de la sesión o null si no existe
+   */
+  getSesion(): any {
+    const sesion &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    return sesion ? JSON.parse(sesion) : null;
+  }
+
+  /**
+   * Verifica si hay un usuario autenticado
+   * @returns {boolean} True si hay sesión activa, false en caso contrario
+   */
+  estaLogueado(): boolean {
+    const sesion &#x3D; this.getSesion();
+    return sesion?.logueado || false;
+  }
+
+  /**
+   * Verifica si el usuario actual es administrador
+   * @returns {boolean} True si es admin, false si es usuario normal o no hay sesión
+   */
+  isAdmin(): boolean {
+    const sesion &#x3D; this.getSesion();
+    return sesion?.tipo !&#x3D;&#x3D; &#x27;usuario&#x27;;
+  }
+
+  /**
+   * Cierra la sesión actual y redirige al inicio
+   */
+  cerrarSesion(): void {
+    console.log(&#x27;🔴 Cerrando sesión...&#x27;);
+    this.auth.cerrarSesion();
+    this.router.navigate([&#x27;/&#x27;]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-lg header-container font-casona&quot; id&#x3D;&quot;navbar&quot;&gt;
+  &lt;div class&#x3D;&quot;header-content&quot;&gt;
+    &lt;div ngbDropdown class&#x3D;&quot;d-inline-block&quot;&gt;
+      &lt;button
+        type&#x3D;&quot;button&quot;
+        type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;btn-navegation btn-light&quot;
+        data-toggle&#x3D;&quot;dropdown&quot;
+        aria-haspopup&#x3D;&quot;true&quot;
+        aria-expanded&#x3D;&quot;false&quot;
+        id&#x3D;&quot;dropdownNav&quot;
+        ngbDropdownToggle
+      &gt;
+        &lt;i class&#x3D;&quot;bi bi-layout-sidebar icon-header&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+
+      &lt;div ngbDropdownMenu aria-labelledby&#x3D;&quot;dropdownNav&quot;&gt;
+        &lt;button
+          class&#x3D;&quot;dropdown-item&quot;
+          type&#x3D;&quot;button&quot;
+          onclick&#x3D;&quot;window.location.href&#x3D;&#x27;index.html&#x27;&quot;
+        &gt;
+          Inicio
+        &lt;/button&gt;
+        &lt;button
+          class&#x3D;&quot;dropdown-item&quot;
+          type&#x3D;&quot;button&quot;
+          onclick&#x3D;&quot;window.location.href&#x3D;&#x27;#next_events&#x27;&quot;
+        &gt;
+          Proximos Eventos
+        &lt;/button&gt;
+        &lt;button
+          class&#x3D;&quot;dropdown-item&quot;
+          type&#x3D;&quot;button&quot;
+          onclick&#x3D;&quot;window.location.href&#x3D;&#x27;#previous_events&#x27;&quot;
+        &gt;
+          Eventos Pasados
+        &lt;/button&gt;
+        &lt;button
+          class&#x3D;&quot;dropdown-item&quot;
+          type&#x3D;&quot;button&quot;
+          onclick&#x3D;&quot;window.location.href&#x3D;&#x27;#about_us&#x27;&quot;
+        &gt;
+          Nosotros
+        &lt;/button&gt;
+        &lt;button
+          class&#x3D;&quot;dropdown-item&quot;
+          type&#x3D;&quot;button&quot;
+          onclick&#x3D;&quot;window.location.href&#x3D;&#x27;#contact_us&#x27;&quot;
+        &gt;
+          Contacto
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class&#x3D;&quot;navbar-brand&quot; routerLink&#x3D;&quot;/&quot;&gt; Casona Encantada &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;&quot; id&#x3D;&quot;navbarNav&quot;&gt;
+    &lt;div class&#x3D;&quot;&quot;&gt;
+      &lt;div ngbDropdown display&#x3D;&quot;dynamic&quot; class&#x3D;&quot;custom-dropdown&quot;&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;btn-profile dropdown-toggle&quot;
+          data-toggle&#x3D;&quot;dropdown&quot;
+          aria-haspopup&#x3D;&quot;true&quot;
+          aria-expanded&#x3D;&quot;false&quot;
+          id&#x3D;&quot;dropdownProfile&quot;
+          ngbDropdownToggle
+        &gt;
+          &lt;label class&#x3D;&quot;label-user&quot; id&#x3D;&quot;userNameLabel&quot;&gt;Usuario&lt;/label&gt;
+        &lt;/button&gt;
+        &lt;div ngbDropdownMenu aria-labelledby&#x3D;&quot;dropdownProfile&quot;&gt;
+          &lt;button *ngIf&#x3D;&quot;!estaLogueado()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/login&quot;&gt;Iniciar sesión&lt;/a&gt;
+          &lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;!estaLogueado()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/registro&quot;&gt;Registro&lt;/a&gt;
+          &lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;estaLogueado() &amp;&amp; isAdmin()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/admin&quot;&gt;Panel Admin&lt;/a&gt;
+          &lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;estaLogueado()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/perfil&quot;&gt;Mi Perfil&lt;/a&gt;
+          &lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;estaLogueado()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/carrito&quot;&gt;Carrito&lt;/a&gt;
+          &lt;/button&gt;
+          &lt;button *ngIf&#x3D;&quot;estaLogueado()&quot; class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; (click)&#x3D;&quot;cerrarSesion()&quot;&gt;Cerrar sesión&lt;/a&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./navbar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.header-container {
+  background-color: #8d9b6d;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--dark-green);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.btn-navegation {
+  display: flex;
+  align-items: center;
+  padding: 0px !important;
+  background-color: transparent !important;
+  border: none !important;
+  margin: 10px !important;
+  cursor: pointer;
+}
+.dropdown-toggle.btn-profile{
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-toggle.btn-profile:hover{
+  background-color: var(--dark-green);
+  border-radius: 16px;
+  color: var(--primary-white);
+}
+.dropdown-toggle.btn-profile .label-user {
+  cursor: pointer;
+  margin: 0px;
+}
+
+.icon-header {
+  cursor: pointer;
+}
+
+.icon-header:hover {
+  color: var(--primary-white);
+}
+.header-label {
+  margin-bottom: 0px;
+}
+
+.header-container .user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-container .user-profile .label-user {
+  margin-right: 10px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg header-container font-casona" id="navbar">  <div class="header-content">    <div ngbDropdown class="d-inline-block">      <button        type="button"        type="button"        class="btn-navegation btn-light"        data-toggle="dropdown"        aria-haspopup="true"        aria-expanded="false"        id="dropdownNav"        ngbDropdownToggle      >        <i class="bi bi-layout-sidebar icon-header"></i>      </button>      <div ngbDropdownMenu aria-labelledby="dropdownNav">        <button          class="dropdown-item"          type="button"          onclick="window.location.href=\'index.html\'"        >          Inicio        </button>        <button          class="dropdown-item"          type="button"          onclick="window.location.href=\'#next_events\'"        >          Proximos Eventos        </button>        <button          class="dropdown-item"          type="button"          onclick="window.location.href=\'#previous_events\'"        >          Eventos Pasados        </button>        <button          class="dropdown-item"          type="button"          onclick="window.location.href=\'#about_us\'"        >          Nosotros        </button>        <button          class="dropdown-item"          type="button"          onclick="window.location.href=\'#contact_us\'"        >          Contacto        </button>      </div>    </div>    <a class="navbar-brand" routerLink="/"> Casona Encantada </a>  </div>  <div class="" id="navbarNav">    <div class="">      <div ngbDropdown display="dynamic" class="custom-dropdown">        <button          type="button"          type="button"          class="btn-profile dropdown-toggle"          data-toggle="dropdown"          aria-haspopup="true"          aria-expanded="false"          id="dropdownProfile"          ngbDropdownToggle        >          <label class="label-user" id="userNameLabel">Usuario</label>        </button>        <div ngbDropdownMenu aria-labelledby="dropdownProfile">          <button *ngIf="!estaLogueado()" class="dropdown-item" type="button">            <a class="nav-link" routerLink="/login">Iniciar sesión</a>          </button>          <button *ngIf="!estaLogueado()" class="dropdown-item" type="button">            <a class="nav-link" routerLink="/registro">Registro</a>          </button>          <button *ngIf="estaLogueado() && isAdmin()" class="dropdown-item" type="button">            <a class="nav-link" routerLink="/admin">Panel Admin</a>          </button>          <button *ngIf="estaLogueado()" class="dropdown-item" type="button">            <a class="nav-link" routerLink="/perfil">Mi Perfil</a>          </button>          <button *ngIf="estaLogueado()" class="dropdown-item" type="button">            <a class="nav-link" routerLink="/carrito">Carrito</a>          </button>          <button *ngIf="estaLogueado()" class="dropdown-item" type="button">            <a class="nav-link" (click)="cerrarSesion()">Cerrar sesión</a>          </button>        </div>      </div>    </div>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

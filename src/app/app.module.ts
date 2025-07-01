@@ -12,13 +12,13 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { RecoverComponent } from './recover/recover.component';
 import { AdminComponent } from './admin/admin.component';
-import { CategoriaComponent } from './categoria/categoria.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { CardLoaderComponent } from './card-loader/card-loader.component';
 import { CarouselImagesComponent } from './carousel-images/carousel-images.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { EventoFormComponent } from './evento-form/evento-form.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +29,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RegisterComponent,
     RecoverComponent,
     AdminComponent,
-    CategoriaComponent,
     PerfilComponent,
     CarritoComponent,
     CardLoaderComponent,
     CarouselImagesComponent,
     ContactUsComponent,
     AboutUsComponent,
+    EventoFormComponent,
   ],
   imports: [
     BrowserModule,

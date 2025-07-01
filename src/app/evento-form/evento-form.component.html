@@ -1,0 +1,107 @@
+<div
+  class="modal-header font-casona bg-[#4a5a36] text-white border-b-2 border-[#ead2b3]"
+>
+  <h4 class="modal-title">{{ modoEdicion ? "Editar" : "Agregar" }} Evento</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="cancelar()"
+  ></button>
+</div>
+
+<div class="modal-body bg-[#4a5a36]">
+  <form (ngSubmit)="guardar()" [formGroup]="eventoForm">
+    <!-- Título del Evento -->
+    <div class="mb-3">
+      <label for="title" class="form-label font-casona text-white">
+        Título del Evento <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]="submitted && f['title'].errors"
+        id="title"
+        formControlName="title"
+      />
+      <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+        <div *ngIf="f['title'].errors['required']" class="text-red-400">
+          El título es requerido
+        </div>
+        <div *ngIf="f['title'].errors['minlength']" class="text-red-400">
+          El título debe tener al menos 3 caracteres
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha -->
+    <div class="mb-3">
+      <label for="date" class="form-label font-casona text-white">
+        Fecha <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="date"
+        class="form-control"
+        [class.is-invalid]="submitted && f['date'].errors"
+        id="date"
+        formControlName="date"
+      />
+      <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">
+        <div *ngIf="f['date'].errors['required']" class="text-red-400">
+          La fecha es requerida
+        </div>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="mb-3">
+      <label for="description" class="form-label font-casona text-white">
+        Descripción <span class="text-red-500">*</span>
+      </label>
+      <textarea
+        class="form-control"
+        [class.is-invalid]="submitted && f['description'].errors"
+        id="description"
+        formControlName="description"
+        rows="3"
+      ></textarea>
+      <div
+        *ngIf="submitted && f['description'].errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f['description'].errors['required']" class="text-red-400">
+          La descripción es requerida
+        </div>
+      </div>
+    </div>
+
+    <!-- URL de la Imagen -->
+    <div class="mb-3">
+      <label for="image" class="form-label font-casona text-white">
+        URL de la Imagen
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        id="image"
+        formControlName="src"
+      />
+    </div>
+
+    <div class="flex justify-between">
+      <button
+        type="button"
+        class="bg-red-500 rounded-full p-2 font-casona text-white hover:bg-red-600 transition-colors"
+        (click)="cancelar()"
+      >
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        class="bg-black rounded-full p-2 hover:bg-white hover:text-black border-2 font-casona text-white transition-colors"
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>

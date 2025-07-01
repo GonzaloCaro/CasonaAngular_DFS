@@ -1,0 +1,1094 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EventoFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/evento-form/evento-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de formulario para crear/editar eventos</p>
+<p>Este componente muestra un formulario modal para crear nuevos eventos o editar
+eventos existentes. Utiliza Reactive Forms para la validación de datos.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;!-- Uso para crear nuevo evento --&gt;
+&lt;button (click)=&quot;openEventoForm()&quot;&gt;Nuevo Evento&lt;/button&gt;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;!-- Uso para editar evento existente --&gt;
+&lt;button (click)=&quot;openEventoForm(eventoExistente)&quot;&gt;Editar Evento&lt;/button&gt;</code></pre></div>
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-evento-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./evento-form.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./evento-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#activeModal" >activeModal</a>
+                            </li>
+                            <li>
+                                <a href="#eventoForm" >eventoForm</a>
+                            </li>
+                            <li>
+                                <a href="#submitted" >submitted</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelar" >cancelar</a>
+                            </li>
+                            <li>
+                                <a href="#guardar" >guardar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#evento" >evento</a>
+                            </li>
+                            <li>
+                                <a href="#modoEdicion" >modoEdicion</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f" >f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(activeModal: NgbActiveModal, fb: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/evento-form/evento-form.component.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>activeModal</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbActiveModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para manejar el modal de ng-bootstrap</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para construir formularios reactivos</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="evento"></a>
+                        <b>evento</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: &#x27;&#x27;,
+    title: &#x27;&#x27;,
+    date: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    src: &#x27;&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/evento-form/evento-form.component.ts:49</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datos del evento a editar (opcional)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modoEdicion"></a>
+                        <b>modoEdicion</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/evento-form/evento-form.component.ts:61</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Modo de operación del formulario (edición/creación)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelar"></a>
+                    <span class="name">
+                        <span ><b>cancelar</b></span>
+                        <a href="#cancelar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/evento-form/evento-form.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cancela la operación y cierra el modal sin guardar cambios</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardar"></a>
+                    <span class="name">
+                        <span ><b>guardar</b></span>
+                        <a href="#guardar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/evento-form/evento-form.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el envío del formulario
+Valida los datos y cierra el modal con los datos actualizados del evento</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/evento-form/evento-form.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inicializa el componente y configura el formulario</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>activeModal</b></span>
+                        <a href="#activeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NgbActiveModal</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/evento-form/evento-form.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para manejar el modal de ng-bootstrap</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventoForm"></a>
+                    <span class="name">
+                        <span ><b>eventoForm</b></span>
+                        <a href="#eventoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/evento-form/evento-form.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>FormGroup para el formulario de evento</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitted"></a>
+                    <span class="name">
+                        <span ><b>submitted</b></span>
+                        <a href="#submitted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/evento-form/evento-form.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si se ha intentado enviar el formulario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/evento-form/evento-form.component.ts:100</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter para acceder fácilmente a los controles del formulario</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/EventoFormControls.html" target="_self" >EventoFormControls</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { NgbActiveModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from &#x27;@angular/forms&#x27;;
+
+/**
+ * Interface para los controles del formulario de evento
+ * @property {AbstractControl} title - Control para el título del evento
+ * @property {AbstractControl} date - Control para la fecha del evento
+ * @property {AbstractControl} description - Control para la descripción del evento
+ * @property {AbstractControl} src - Control para la URL de la imagen del evento
+ */
+interface EventoFormControls {
+  [key: string]: AbstractControl;
+  title: AbstractControl;
+  date: AbstractControl;
+  description: AbstractControl;
+  src: AbstractControl;
+}
+
+/**
+ * Componente de formulario para crear/editar eventos
+ *
+ * Este componente muestra un formulario modal para crear nuevos eventos o editar
+ * eventos existentes. Utiliza Reactive Forms para la validación de datos.
+ *
+ * @example
+ * &lt;!-- Uso para crear nuevo evento --&gt;
+ * &lt;button (click)&#x3D;&quot;openEventoForm()&quot;&gt;Nuevo Evento&lt;/button&gt;
+ *
+ * @example
+ * &lt;!-- Uso para editar evento existente --&gt;
+ * &lt;button (click)&#x3D;&quot;openEventoForm(eventoExistente)&quot;&gt;Editar Evento&lt;/button&gt;
+ */
+@Component({
+  selector: &#x27;app-evento-form&#x27;,
+  templateUrl: &#x27;./evento-form.component.html&#x27;,
+  styleUrls: [&#x27;./evento-form.component.css&#x27;],
+})
+export class EventoFormComponent implements OnInit {
+  /**
+   * Datos del evento a editar (opcional)
+   * @default {id: &#x27;&#x27;, title: &#x27;&#x27;, date: &#x27;&#x27;, description: &#x27;&#x27;, src: &#x27;&#x27;}
+   */
+  @Input() evento: any &#x3D; {
+    id: &#x27;&#x27;,
+    title: &#x27;&#x27;,
+    date: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    src: &#x27;&#x27;,
+  };
+
+  /**
+   * Modo de operación del formulario (edición/creación)
+   * @default false
+   */
+  @Input() modoEdicion: boolean &#x3D; false;
+
+  /**
+   * FormGroup para el formulario de evento
+   */
+  eventoForm!: FormGroup;
+
+  /**
+   * Indica si se ha intentado enviar el formulario
+   * @default false
+   */
+  submitted &#x3D; false;
+
+  /**
+   * Constructor del componente
+   * @param activeModal Servicio para manejar el modal de ng-bootstrap
+   * @param fb Servicio para construir formularios reactivos
+   */
+  constructor(public activeModal: NgbActiveModal, private fb: FormBuilder) {}
+
+  /**
+   * Inicializa el componente y configura el formulario
+   */
+  ngOnInit(): void {
+    this.eventoForm &#x3D; this.fb.group({
+      title: [
+        this.evento.title,
+        [Validators.required, Validators.minLength(3)],
+      ],
+      date: [this.evento.date, Validators.required],
+      description: [this.evento.description, Validators.required],
+      src: [this.evento.src],
+    });
+  }
+
+  /**
+   * Getter para acceder fácilmente a los controles del formulario
+   * @returns {EventoFormControls} Controles del formulario
+   */
+  get f(): EventoFormControls {
+    return this.eventoForm.controls as EventoFormControls;
+  }
+
+  /**
+   * Maneja el envío del formulario
+   * Valida los datos y cierra el modal con los datos actualizados del evento
+   */
+  guardar(): void {
+    this.submitted &#x3D; true;
+
+    if (this.eventoForm.invalid) {
+      return;
+    }
+
+    const updatedEvento &#x3D; {
+      ...this.evento,
+      title: this.eventoForm.value.title,
+      date: this.eventoForm.value.date,
+      description: this.eventoForm.value.description,
+      src: this.eventoForm.value.src,
+    };
+
+    this.activeModal.close(updatedEvento);
+  }
+
+  /**
+   * Cancela la operación y cierra el modal sin guardar cambios
+   */
+  cancelar(): void {
+    this.activeModal.dismiss();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;modal-header font-casona bg-[#4a5a36] text-white border-b-2 border-[#ead2b3]&quot;
+&gt;
+  &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;{{ modoEdicion ? &quot;Editar&quot; : &quot;Agregar&quot; }} Evento&lt;/h4&gt;
+  &lt;button
+    type&#x3D;&quot;button&quot;
+    class&#x3D;&quot;btn-close&quot;
+    aria-label&#x3D;&quot;Close&quot;
+    (click)&#x3D;&quot;cancelar()&quot;
+  &gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;modal-body bg-[#4a5a36]&quot;&gt;
+  &lt;form (ngSubmit)&#x3D;&quot;guardar()&quot; [formGroup]&#x3D;&quot;eventoForm&quot;&gt;
+    &lt;!-- Título del Evento --&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;title&quot; class&#x3D;&quot;form-label font-casona text-white&quot;&gt;
+        Título del Evento &lt;span class&#x3D;&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        class&#x3D;&quot;form-control&quot;
+        [class.is-invalid]&#x3D;&quot;submitted &amp;&amp; f[&#x27;title&#x27;].errors&quot;
+        id&#x3D;&quot;title&quot;
+        formControlName&#x3D;&quot;title&quot;
+      /&gt;
+      &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f[&#x27;title&#x27;].errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;f[&#x27;title&#x27;].errors[&#x27;required&#x27;]&quot; class&#x3D;&quot;text-red-400&quot;&gt;
+          El título es requerido
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;f[&#x27;title&#x27;].errors[&#x27;minlength&#x27;]&quot; class&#x3D;&quot;text-red-400&quot;&gt;
+          El título debe tener al menos 3 caracteres
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Fecha --&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;date&quot; class&#x3D;&quot;form-label font-casona text-white&quot;&gt;
+        Fecha &lt;span class&#x3D;&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;date&quot;
+        class&#x3D;&quot;form-control&quot;
+        [class.is-invalid]&#x3D;&quot;submitted &amp;&amp; f[&#x27;date&#x27;].errors&quot;
+        id&#x3D;&quot;date&quot;
+        formControlName&#x3D;&quot;date&quot;
+      /&gt;
+      &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f[&#x27;date&#x27;].errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;f[&#x27;date&#x27;].errors[&#x27;required&#x27;]&quot; class&#x3D;&quot;text-red-400&quot;&gt;
+          La fecha es requerida
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Descripción --&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;description&quot; class&#x3D;&quot;form-label font-casona text-white&quot;&gt;
+        Descripción &lt;span class&#x3D;&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;textarea
+        class&#x3D;&quot;form-control&quot;
+        [class.is-invalid]&#x3D;&quot;submitted &amp;&amp; f[&#x27;description&#x27;].errors&quot;
+        id&#x3D;&quot;description&quot;
+        formControlName&#x3D;&quot;description&quot;
+        rows&#x3D;&quot;3&quot;
+      &gt;&lt;/textarea&gt;
+      &lt;div
+        *ngIf&#x3D;&quot;submitted &amp;&amp; f[&#x27;description&#x27;].errors&quot;
+        class&#x3D;&quot;invalid-feedback&quot;
+      &gt;
+        &lt;div *ngIf&#x3D;&quot;f[&#x27;description&#x27;].errors[&#x27;required&#x27;]&quot; class&#x3D;&quot;text-red-400&quot;&gt;
+          La descripción es requerida
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- URL de la Imagen --&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;image&quot; class&#x3D;&quot;form-label font-casona text-white&quot;&gt;
+        URL de la Imagen
+      &lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        class&#x3D;&quot;form-control&quot;
+        id&#x3D;&quot;image&quot;
+        formControlName&#x3D;&quot;src&quot;
+      /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-between&quot;&gt;
+      &lt;button
+        type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;bg-red-500 rounded-full p-2 font-casona text-white hover:bg-red-600 transition-colors&quot;
+        (click)&#x3D;&quot;cancelar()&quot;
+      &gt;
+        Cancelar
+      &lt;/button&gt;
+      &lt;button
+        type&#x3D;&quot;submit&quot;
+        class&#x3D;&quot;bg-black rounded-full p-2 hover:bg-white hover:text-black border-2 font-casona text-white transition-colors&quot;
+      &gt;
+        Guardar
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./evento-form.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilo para inputs inválidos */
+.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url(&quot;data:image/svg+xml,%3csvg xmlns&#x3D;&#x27;http://www.w3.org/2000/svg&#x27; viewBox&#x3D;&#x27;0 0 12 12&#x27; width&#x3D;&#x27;12&#x27; height&#x3D;&#x27;12&#x27; fill&#x3D;&#x27;none&#x27; stroke&#x3D;&#x27;%23dc3545&#x27;%3e%3ccircle cx&#x3D;&#x27;6&#x27; cy&#x3D;&#x27;6&#x27; r&#x3D;&#x27;4.5&#x27;/%3e%3cpath stroke-linejoin&#x3D;&#x27;round&#x27; d&#x3D;&#x27;M5.8 3.6h.4L6 6.5z&#x27;/%3e%3ccircle cx&#x3D;&#x27;6&#x27; cy&#x3D;&#x27;8.2&#x27; r&#x3D;&#x27;.6&#x27; fill&#x3D;&#x27;%23dc3545&#x27; stroke&#x3D;&#x27;none&#x27;/%3e%3c/svg%3e&quot;);
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Transición para los botones */
+button {
+  transition: all 0.2s ease-in-out;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="modal-header font-casona bg-[#4a5a36] text-white border-b-2 border-[#ead2b3]">  <h4 class="modal-title">{{ modoEdicion ? "Editar" : "Agregar" }} Evento</h4>  <button    type="button"    class="btn-close"    aria-label="Close"    (click)="cancelar()"  ></button></div><div class="modal-body bg-[#4a5a36]">  <form (ngSubmit)="guardar()" [formGroup]="eventoForm">    <!-- Título del Evento -->    <div class="mb-3">      <label for="title" class="form-label font-casona text-white">        Título del Evento <span class="text-red-500">*</span>      </label>      <input        type="text"        class="form-control"        [class.is-invalid]="submitted && f[\'title\'].errors"        id="title"        formControlName="title"      />      <div *ngIf="submitted && f[\'title\'].errors" class="invalid-feedback">        <div *ngIf="f[\'title\'].errors[\'required\']" class="text-red-400">          El título es requerido        </div>        <div *ngIf="f[\'title\'].errors[\'minlength\']" class="text-red-400">          El título debe tener al menos 3 caracteres        </div>      </div>    </div>    <!-- Fecha -->    <div class="mb-3">      <label for="date" class="form-label font-casona text-white">        Fecha <span class="text-red-500">*</span>      </label>      <input        type="date"        class="form-control"        [class.is-invalid]="submitted && f[\'date\'].errors"        id="date"        formControlName="date"      />      <div *ngIf="submitted && f[\'date\'].errors" class="invalid-feedback">        <div *ngIf="f[\'date\'].errors[\'required\']" class="text-red-400">          La fecha es requerida        </div>      </div>    </div>    <!-- Descripción -->    <div class="mb-3">      <label for="description" class="form-label font-casona text-white">        Descripción <span class="text-red-500">*</span>      </label>      <textarea        class="form-control"        [class.is-invalid]="submitted && f[\'description\'].errors"        id="description"        formControlName="description"        rows="3"      ></textarea>      <div        *ngIf="submitted && f[\'description\'].errors"        class="invalid-feedback"      >        <div *ngIf="f[\'description\'].errors[\'required\']" class="text-red-400">          La descripción es requerida        </div>      </div>    </div>    <!-- URL de la Imagen -->    <div class="mb-3">      <label for="image" class="form-label font-casona text-white">        URL de la Imagen      </label>      <input        type="text"        class="form-control"        id="image"        formControlName="src"      />    </div>    <div class="flex justify-between">      <button        type="button"        class="bg-red-500 rounded-full p-2 font-casona text-white hover:bg-red-600 transition-colors"        (click)="cancelar()"      >        Cancelar      </button>      <button        type="submit"        class="bg-black rounded-full p-2 hover:bg-white hover:text-black border-2 font-casona text-white transition-colors"      >        Guardar      </button>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EventoFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EventoFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

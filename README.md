@@ -1,3 +1,10 @@
+# Info Casona
+
+Casona Encantada es un emprendimiento formado por Kim, Scatha y Andreotty en 2024. 
+Comenzo como una Boutique Gotica ubicada en Concha y Toro 39, luego termino tomando forma a lo 
+que hoy conocemos como Casona Encantada. Esta se debe al lugar en donde se realizan los 
+diversos eventos, en una Casona patrimonial de los años 1920 en el clasico barrio Concha y Toro.
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.

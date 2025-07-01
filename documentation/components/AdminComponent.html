@@ -1,0 +1,1482 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/admin/admin.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de administración que permite gestionar usuarios y eventos</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./admin.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#eventos" >eventos</a>
+                            </li>
+                            <li>
+                                <a href="#inicializado" >inicializado</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarUsuarios" >mostrarUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#actualizarEventos" >actualizarEventos</a>
+                            </li>
+                            <li>
+                                <a href="#agregarNuevoEvento" >agregarNuevoEvento</a>
+                            </li>
+                            <li>
+                                <a href="#cargarDatos" >cargarDatos</a>
+                            </li>
+                            <li>
+                                <a href="#editarEvento" >editarEvento</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarEvento" >eliminarEvento</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarUsuario" >eliminarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#generarIdUnico" >generarIdUnico</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarPanel" >mostrarPanel</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalService: NgbModal)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/admin/admin.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para manejar modales de NgbModal</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarEventos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>actualizarEventos</b></span>
+                        <a href="#actualizarEventos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>actualizarEventos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza los eventos en localStorage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarNuevoEvento"></a>
+                    <span class="name">
+                        <span ><b>agregarNuevoEvento</b></span>
+                        <a href="#agregarNuevoEvento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarNuevoEvento()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal para agregar un nuevo evento</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarDatos"></a>
+                    <span class="name">
+                        <span ><b>cargarDatos</b></span>
+                        <a href="#cargarDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarDatos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los datos iniciales de usuarios y eventos desde localStorage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editarEvento"></a>
+                    <span class="name">
+                        <span ><b>editarEvento</b></span>
+                        <a href="#editarEvento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editarEvento(evento: <a href="../interfaces/expos.html" target="_self">expos</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal para editar un evento existente</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>evento</td>
+                                            <td>
+                                                            <code><a href="../interfaces/expos.html" target="_self" >expos</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto del evento a editar</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarEvento"></a>
+                    <span class="name">
+                        <span ><b>eliminarEvento</b></span>
+                        <a href="#eliminarEvento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarEvento(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un evento del sistema</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento a eliminar</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarUsuario"></a>
+                    <span class="name">
+                        <span ><b>eliminarUsuario</b></span>
+                        <a href="#eliminarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarUsuario(correo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un usuario del sistema</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>correo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Email del usuario a eliminar</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generarIdUnico"></a>
+                    <span class="name">
+                        <span ><b>generarIdUnico</b></span>
+                        <a href="#generarIdUnico"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generarIdUnico()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Genera un ID único para nuevos eventos</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>string - ID único generado</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarPanel"></a>
+                    <span class="name">
+                        <span ><b>mostrarPanel</b></span>
+                        <a href="#mostrarPanel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mostrarPanel(panel: "usuarios" | "eventos")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia entre los paneles de usuarios y eventos</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>panel</td>
+                                            <td>
+                                                        <code>&quot;usuarios&quot; | &quot;eventos&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Tipo de panel a mostrar (&#39;usuarios&#39; o &#39;eventos&#39;)</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/admin/admin.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida OnInit
+Se ejecuta al inicializar el componente</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventos"></a>
+                    <span class="name">
+                        <span ><b>eventos</b></span>
+                        <a href="#eventos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>expos[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/admin/admin.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de eventos/exposiciones en el sistema</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializado"></a>
+                    <span class="name">
+                        <span ><b>inicializado</b></span>
+                        <a href="#inicializado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/admin/admin.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag que indica si los datos han sido cargados</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarUsuarios"></a>
+                    <span class="name">
+                        <span ><b>mostrarUsuarios</b></span>
+                        <a href="#mostrarUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/admin/admin.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla qué panel se muestra (usuarios o eventos)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/admin/admin.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de usuarios registrados en el sistema</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { NgbModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { EventoFormComponent } from &#x27;../evento-form/evento-form.component&#x27;;
+
+/**
+ * Interface que define la estructura de un evento/exposición
+ */
+interface expos {
+  /** ID único del evento */
+  id: string;
+  /** URL de la imagen del evento */
+  src: string;
+  /** Título del evento */
+  title: string;
+  /** Fecha del evento en formato string */
+  date: string;
+  /** Descripción detallada del evento */
+  description: string;
+}
+
+/**
+ * Componente de administración que permite gestionar usuarios y eventos
+ */
+@Component({
+  selector: &#x27;app-admin&#x27;,
+  templateUrl: &#x27;./admin.component.html&#x27;,
+  styleUrls: [&#x27;./admin.component.css&#x27;],
+})
+export class AdminComponent implements OnInit {
+  /** Lista de usuarios registrados en el sistema */
+  usuarios: any[] &#x3D; [];
+
+  /** Flag que indica si los datos han sido cargados */
+  inicializado &#x3D; false;
+
+  /** Controla qué panel se muestra (usuarios o eventos) */
+  mostrarUsuarios &#x3D; true;
+
+  /** Lista de eventos/exposiciones en el sistema */
+  eventos: expos[] &#x3D; [];
+
+  /**
+   * Constructor del componente
+   * @param modalService Servicio para manejar modales de NgbModal
+   */
+  constructor(private modalService: NgbModal) {}
+
+  /**
+   * Método del ciclo de vida OnInit
+   * Se ejecuta al inicializar el componente
+   */
+  ngOnInit(): void {
+    this.cargarDatos();
+  }
+
+  /**
+   * Carga los datos iniciales de usuarios y eventos desde localStorage
+   * @returns void
+   */
+  cargarDatos(): void {
+    const usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    this.usuarios &#x3D; usuarios ? JSON.parse(usuarios) : [];
+
+    const eventos &#x3D; localStorage.getItem(&#x27;eventos&#x27;);
+    this.eventos &#x3D; eventos ? JSON.parse(eventos) : [];
+    this.inicializado &#x3D; true;
+  }
+
+  /**
+   * Cambia entre los paneles de usuarios y eventos
+   * @param panel Tipo de panel a mostrar (&#x27;usuarios&#x27; o &#x27;eventos&#x27;)
+   * @returns void
+   */
+  mostrarPanel(panel: &#x27;usuarios&#x27; | &#x27;eventos&#x27;): void {
+    this.mostrarUsuarios &#x3D; panel &#x3D;&#x3D;&#x3D; &#x27;usuarios&#x27;;
+  }
+
+  /**
+   * Elimina un usuario del sistema
+   * @param correo Email del usuario a eliminar
+   * @returns void
+   */
+  eliminarUsuario(correo: string): void {
+    if (confirm(&#x27;¿Estás seguro de eliminar este usuario?&#x27;)) {
+      this.usuarios &#x3D; this.usuarios.filter((u) &#x3D;&gt; u.email !&#x3D;&#x3D; correo);
+      localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(this.usuarios));
+    }
+  }
+
+  /**
+   * Elimina un evento del sistema
+   * @param id ID del evento a eliminar
+   * @returns void
+   */
+  eliminarEvento(id: string): void {
+    if (confirm(&#x27;¿Estás seguro de eliminar este evento?&#x27;)) {
+      this.eventos &#x3D; this.eventos.filter((e) &#x3D;&gt; e.id !&#x3D;&#x3D; id);
+      this.actualizarEventos();
+    }
+  }
+
+  /**
+   * Abre el modal para editar un evento existente
+   * @param evento Objeto del evento a editar
+   * @returns void
+   */
+  editarEvento(evento: expos): void {
+    const modalRef &#x3D; this.modalService.open(EventoFormComponent);
+    modalRef.componentInstance.evento &#x3D; { ...evento };
+    modalRef.componentInstance.modoEdicion &#x3D; true;
+
+    modalRef.result
+      .then((result) &#x3D;&gt; {
+        if (result) {
+          const index &#x3D; this.eventos.findIndex((e) &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; evento.id);
+          if (index !&#x3D;&#x3D; -1) {
+            this.eventos[index] &#x3D; result;
+            this.actualizarEventos();
+          }
+        }
+      })
+      .catch(() &#x3D;&gt; {});
+  }
+
+  /**
+   * Abre el modal para agregar un nuevo evento
+   * @returns void
+   */
+  agregarNuevoEvento(): void {
+    const modalRef &#x3D; this.modalService.open(EventoFormComponent);
+    modalRef.componentInstance.modoEdicion &#x3D; false;
+
+    modalRef.result
+      .then((result) &#x3D;&gt; {
+        if (result) {
+          this.eventos.push(result);
+          this.actualizarEventos();
+        }
+      })
+      .catch(() &#x3D;&gt; {});
+  }
+
+  /**
+   * Actualiza los eventos en localStorage
+   * @private
+   * @returns void
+   */
+  private actualizarEventos(): void {
+    localStorage.setItem(&#x27;eventos&#x27;, JSON.stringify(this.eventos));
+    // Actualizar también en el card-loader si es necesario
+    localStorage.setItem(&#x27;eventos&#x27;, JSON.stringify(this.eventos));
+  }
+
+  /**
+   * Genera un ID único para nuevos eventos
+   * @returns string - ID único generado
+   */
+  generarIdUnico(): string {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container mt-5&quot; *ngIf&#x3D;&quot;inicializado&quot;&gt;
+  &lt;div class&#x3D;&quot;d-flex justify-content-center gap-3 mb-4 font-casona&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;mostrarPanel(&#x27;usuarios&#x27;)&quot;&gt;
+      Usuarios
+    &lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;mostrarPanel(&#x27;eventos&#x27;)&quot;&gt;
+      Eventos
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Tabla de usuarios --&gt;
+  &lt;div *ngIf&#x3D;&quot;mostrarUsuarios&quot;&gt;
+    &lt;h2 class&#x3D;&quot;text-center mb-4 font-casona&quot;&gt;Administrar Usuarios&lt;/h2&gt;
+    &lt;div class&#x3D;&quot;tableContainer&quot;&gt;
+      &lt;table&gt;
+        &lt;thead class&#x3D;&quot;&quot;&gt;
+          &lt;tr class&#x3D;&quot;font-casona&quot;&gt;
+            &lt;th&gt;Nombre&lt;/th&gt;
+            &lt;th&gt;Correo&lt;/th&gt;
+            &lt;th&gt;Tipo&lt;/th&gt;
+            &lt;th&gt;Acciones&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let usuario of usuarios&quot;&gt;
+            &lt;td&gt;{{ usuario.nombre }}&lt;/td&gt;
+            &lt;td&gt;{{ usuario.email }}&lt;/td&gt;
+            &lt;td&gt;{{ usuario.tipo }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-danger btn-sm&quot;
+                (click)&#x3D;&quot;eliminarUsuario(usuario.email)&quot;
+                ngbTooltip&#x3D;&quot;Eliminar usuario&quot;
+                placement&#x3D;&quot;bottom&quot;
+              &gt;
+                &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Tabla de eventos --&gt;
+  &lt;div class&#x3D;&quot;flex flex-col items-center&quot; *ngIf&#x3D;&quot;!mostrarUsuarios&quot;&gt;
+    &lt;h2 class&#x3D;&quot;text-center mb-4 font-casona&quot;&gt;Administrar Eventos&lt;/h2&gt;
+    &lt;button
+      class&#x3D;&quot;m-auto mb-4 hover:text-white font-casona&quot;
+      (click)&#x3D;&quot;agregarNuevoEvento()&quot;
+    &gt;
+      Agregar nuevo evento
+    &lt;/button&gt;
+    &lt;div class&#x3D;&quot;tableContainer&quot;&gt;
+      &lt;table&gt;
+        &lt;thead&gt;
+          &lt;tr class&#x3D;&quot;font-casona&quot;&gt;
+            &lt;th&gt;Evento&lt;/th&gt;
+            &lt;th&gt;Fecha&lt;/th&gt;
+            &lt;th&gt;Descripción&lt;/th&gt;
+            &lt;th&gt;Imagen&lt;/th&gt;
+            &lt;th&gt;Acciones&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let evento of eventos&quot;&gt;
+            &lt;td&gt;{{ evento.title }}&lt;/td&gt;
+            &lt;td&gt;{{ evento.date | date : &quot;dd/MM/yyyy&quot; }}&lt;/td&gt;
+            &lt;td&gt;{{ evento.description }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;img
+                [src]&#x3D;&quot;evento.src&quot;
+                style&#x3D;&quot;max-width: 100px; max-height: 60px&quot;
+                *ngIf&#x3D;&quot;evento.src&quot;
+              /&gt;
+              &lt;span *ngIf&#x3D;&quot;!evento.src&quot;&gt;Sin imagen&lt;/span&gt;
+            &lt;/td&gt;
+            &lt;td class&#x3D;&quot;flex gap-2&quot;&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-warning btn-sm&quot;
+                (click)&#x3D;&quot;editarEvento(evento)&quot;
+                ngbTooltip&#x3D;&quot;Editar evento&quot;
+                placement&#x3D;&quot;bottom&quot;
+              &gt;
+                &lt;i class&#x3D;&quot;bi bi-pencil-square&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-danger btn-sm&quot;
+                (click)&#x3D;&quot;eliminarEvento(evento.id)&quot;
+                ngbTooltip&#x3D;&quot;Eliminar evento&quot;
+                placement&#x3D;&quot;bottom&quot;
+              &gt;
+                &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+              &lt;/button&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./admin.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.collapse {
+  transition: all 0.3s ease;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Table style */
+.tableContainer {
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0 2px 8px var(--dark-green);
+  border-radius: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--secondary-green);
+  color: var(--color-fondo);
+  position: sticky;
+  top: 0;
+}
+
+th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--primary-beige);
+}
+th:first-child {
+  border-top-left-radius: 16px;
+}
+th:last-child {
+  border-top-right-radius: 16px;
+}
+
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--primary-green);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--secondary-green);
+}
+tbody tr:nth-child(odd) button{
+  background-color: var(--primary-green);
+}
+
+tbody tr:hover {
+  background-color: var(--dark-green);
+  color: white;
+}
+
+td {
+  padding: 0.8rem 1.2rem;
+  color: var(--color-gris-oscuro);
+  border-bottom: 1px solid var(--color-detalle-claro);
+}
+
+
+td:not(:last-child) {
+  border-right: 1px solid var(--color-detalle-claro);
+}
+
+button {
+  background-color: var(--secondary-green);
+  color: var(--color-fondo);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin-right: 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover button {
+  background-color: var(--primary-beige);
+  color: black;
+}
+
+button:hover {
+  background-color: var(--color-principal);
+  transform: translateY(-1px);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container mt-5" *ngIf="inicializado">  <div class="d-flex justify-content-center gap-3 mb-4 font-casona">    <button class="btn btn-primary" (click)="mostrarPanel(\'usuarios\')">      Usuarios    </button>    <button class="btn btn-secondary" (click)="mostrarPanel(\'eventos\')">      Eventos    </button>  </div>  <!-- Tabla de usuarios -->  <div *ngIf="mostrarUsuarios">    <h2 class="text-center mb-4 font-casona">Administrar Usuarios</h2>    <div class="tableContainer">      <table>        <thead class="">          <tr class="font-casona">            <th>Nombre</th>            <th>Correo</th>            <th>Tipo</th>            <th>Acciones</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let usuario of usuarios">            <td>{{ usuario.nombre }}</td>            <td>{{ usuario.email }}</td>            <td>{{ usuario.tipo }}</td>            <td>              <button                class="btn btn-danger btn-sm"                (click)="eliminarUsuario(usuario.email)"                ngbTooltip="Eliminar usuario"                placement="bottom"              >                <i class="bi bi-trash"></i>              </button>            </td>          </tr>        </tbody>      </table>    </div>  </div>  <!-- Tabla de eventos -->  <div class="flex flex-col items-center" *ngIf="!mostrarUsuarios">    <h2 class="text-center mb-4 font-casona">Administrar Eventos</h2>    <button      class="m-auto mb-4 hover:text-white font-casona"      (click)="agregarNuevoEvento()"    >      Agregar nuevo evento    </button>    <div class="tableContainer">      <table>        <thead>          <tr class="font-casona">            <th>Evento</th>            <th>Fecha</th>            <th>Descripción</th>            <th>Imagen</th>            <th>Acciones</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let evento of eventos">            <td>{{ evento.title }}</td>            <td>{{ evento.date | date : "dd/MM/yyyy" }}</td>            <td>{{ evento.description }}</td>            <td>              <img                [src]="evento.src"                style="max-width: 100px; max-height: 60px"                *ngIf="evento.src"              />              <span *ngIf="!evento.src">Sin imagen</span>            </td>            <td class="flex gap-2">              <button                class="btn btn-warning btn-sm"                (click)="editarEvento(evento)"                ngbTooltip="Editar evento"                placement="bottom"              >                <i class="bi bi-pencil-square"></i>              </button>              <button                class="btn btn-danger btn-sm"                (click)="eliminarEvento(evento.id)"                ngbTooltip="Eliminar evento"                placement="bottom"              >                <i class="bi bi-trash"></i>              </button>            </td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

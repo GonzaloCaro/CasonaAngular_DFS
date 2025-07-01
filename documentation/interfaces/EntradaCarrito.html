@@ -1,0 +1,727 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  EntradaCarrito</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/carrito/carrito.component.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface que define la estructura de una entrada en el carrito</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#cantidad" 
+>
+                                            cantidad
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#descripcion" 
+>
+                                            descripcion
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#fecha" 
+>
+                                            fecha
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#imagen" 
+>
+                                            imagen
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#nombre" 
+>
+                                            nombre
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#precio" 
+>
+                                            precio
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#tipo_entrada" 
+>
+                                            tipo_entrada
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="cantidad"></a>
+                                        <span class="name "><b>cantidad</b>
+                                            <a href="#cantidad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>cantidad:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Cantidad de entradas</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="descripcion"></a>
+                                        <span class="name "><b>descripcion</b>
+                                            <a href="#descripcion">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>descripcion:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Descripción del evento</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fecha"></a>
+                                        <span class="name "><b>fecha</b>
+                                            <a href="#fecha">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fecha:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Fecha del evento</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="imagen"></a>
+                                        <span class="name "><b>imagen</b>
+                                            <a href="#imagen">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>imagen:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>URL de la imagen del evento</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nombre"></a>
+                                        <span class="name "><b>nombre</b>
+                                            <a href="#nombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nombre:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nombre del evento</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="precio"></a>
+                                        <span class="name "><b>precio</b>
+                                            <a href="#precio">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>precio:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Precio de la entrada</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tipo_entrada"></a>
+                                        <span class="name "><b>tipo_entrada</b>
+                                            <a href="#tipo_entrada">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tipo_entrada:     <code>&quot;General&quot; | &quot;VIP&quot; | &quot;Premium&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;General&quot; | &quot;VIP&quot; | &quot;Premium&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Tipo de entrada (General, VIP o Premium)</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+/**
+ * Interface que define la estructura de una entrada en el carrito
+ */
+interface EntradaCarrito {
+  /** Nombre del evento */
+  nombre: string;
+  /** Fecha del evento */
+  fecha: string;
+  /** Descripción del evento */
+  descripcion: string;
+  /** URL de la imagen del evento */
+  imagen: string;
+  /** Tipo de entrada (General, VIP o Premium) */
+  tipo_entrada: &#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;;
+  /** Precio de la entrada */
+  precio: number;
+  /** Cantidad de entradas */
+  cantidad: number;
+}
+
+/**
+ * Componente que gestiona el carrito de compras de entradas
+ * Permite agregar, modificar y eliminar entradas, así como realizar la compra
+ *
+ * @example
+ * &lt;app-carrito&gt;&lt;/app-carrito&gt;
+ */
+@Component({
+  selector: &#x27;app-carrito&#x27;,
+  templateUrl: &#x27;./carrito.component.html&#x27;,
+  styleUrls: [&#x27;./carrito.component.css&#x27;],
+})
+export class CarritoComponent implements OnInit {
+  /**
+   * Lista de entradas en el carrito
+   * @type {EntradaCarrito[]}
+   */
+  carrito: EntradaCarrito[] &#x3D; [];
+
+  /**
+   * Total a pagar por las entradas en el carrito
+   * @type {number}
+   */
+  total &#x3D; 0;
+
+  /**
+   * Clave única del carrito en localStorage (basada en el email del usuario)
+   * @type {string}
+   */
+  claveCarrito &#x3D; &#x27;&#x27;;
+
+  /**
+   * Tipos de entrada disponibles con sus precios
+   * @type {{nombre: string, precio: number}[]}
+   */
+  tiposEntrada &#x3D; [
+    { nombre: &#x27;General&#x27;, precio: 10000 },
+    { nombre: &#x27;VIP&#x27;, precio: 15000 },
+    { nombre: &#x27;Premium&#x27;, precio: 20000 },
+  ];
+
+  /**
+   * Método del ciclo de vida OnInit
+   * Inicializa el carrito al cargar el componente
+   */
+  ngOnInit(): void {
+    const sesionStr &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    const sesion &#x3D; sesionStr ? JSON.parse(sesionStr) : null;
+
+    if (sesion?.logueado) {
+      this.claveCarrito &#x3D; &#x27;carrito_&#x27; + sesion.email;
+      this.cargarCarrito();
+    }
+  }
+
+  /**
+   * Carga el carrito desde localStorage
+   * @returns {void}
+   */
+  cargarCarrito(): void {
+    const carritoGuardado &#x3D; localStorage.getItem(this.claveCarrito);
+    this.carrito &#x3D; carritoGuardado ? JSON.parse(carritoGuardado) : [];
+
+    // Limita a un solo evento en el carrito
+    if (this.carrito.length &gt; 1) {
+      this.carrito &#x3D; [this.carrito[0]];
+      localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+    }
+
+    this.calcularTotal();
+  }
+
+  /**
+   * Calcula el total a pagar sumando todas las entradas del carrito
+   * @returns {void}
+   */
+  calcularTotal(): void {
+    this.total &#x3D; this.carrito.reduce(
+      (sum, item) &#x3D;&gt; sum + item.precio * item.cantidad,
+      0
+    );
+  }
+
+  /**
+   * Cambia el tipo de entrada y actualiza el precio correspondiente
+   * @param {&#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;} nuevoTipo - Nuevo tipo de entrada seleccionado
+   * @returns {void}
+   */
+  cambiarTipoEntrada(nuevoTipo: &#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;): void {
+    if (this.carrito.length &gt; 0) {
+      this.carrito[0].tipo_entrada &#x3D; nuevoTipo;
+      const tipoSeleccionado &#x3D; this.tiposEntrada.find(
+        (t) &#x3D;&gt; t.nombre &#x3D;&#x3D;&#x3D; nuevoTipo
+      );
+      if (tipoSeleccionado) {
+        this.carrito[0].precio &#x3D; tipoSeleccionado.precio;
+      }
+      localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+      this.calcularTotal();
+    }
+  }
+
+  /**
+   * Vacía completamente el carrito
+   * @returns {void}
+   */
+  vaciarCarrito(): void {
+    localStorage.removeItem(this.claveCarrito);
+    this.carrito &#x3D; [];
+    this.total &#x3D; 0;
+  }
+
+  /**
+   * Procesa la compra de las entradas en el carrito
+   * @returns {void}
+   * @throws {Alert} Muestra alerta si el carrito está vacío
+   */
+  comprar(): void {
+    if (this.carrito.length &#x3D;&#x3D;&#x3D; 0) {
+      alert(&#x27;Tu carrito está vacío.&#x27;);
+      return;
+    }
+
+    alert(&#x27;¡Compra realizada con éxito!&#x27;);
+    this.vaciarCarrito();
+  }
+
+  /**
+   * Actualiza la cantidad de entradas con un valor de cambio (+1 o -1)
+   * @param {number} cambio - Valor a sumar/restar a la cantidad actual (1 o -1)
+   * @returns {void}
+   */
+  actualizarCantidad(cambio: number): void {
+    if (this.carrito.length &gt; 0) {
+      const nuevaCantidad &#x3D; this.carrito[0].cantidad + cambio;
+      if (nuevaCantidad &gt;&#x3D; 1 &amp;&amp; nuevaCantidad &lt;&#x3D; 10) {
+        this.carrito[0].cantidad &#x3D; nuevaCantidad;
+        localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+        this.calcularTotal();
+      }
+    }
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntradaCarrito.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

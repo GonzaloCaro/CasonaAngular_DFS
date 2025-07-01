@@ -1,0 +1,816 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PerfilComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/perfil/perfil.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para mostrar y gestionar el perfil de usuario</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-perfil</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./perfil.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./perfil.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#mensaje" >mensaje</a>
+                            </li>
+                            <li>
+                                <a href="#sesion" >sesion</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#guardarCambios" >guardarCambios</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCambios"></a>
+                    <span class="name">
+                        <span ><b>guardarCambios</b></span>
+                        <a href="#guardarCambios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarCambios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/perfil/perfil.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Guarda los cambios realizados en el perfil del usuario
+Actualiza los datos en localStorage y muestra un mensaje de confirmación</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/perfil/perfil.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida de Angular que se ejecuta al inicializar el componente</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensaje"></a>
+                    <span class="name">
+                        <span ><b>mensaje</b></span>
+                        <a href="#mensaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/perfil/perfil.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje para mostrar feedback al usuario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sesion"></a>
+                    <span class="name">
+                        <span ><b>sesion</b></span>
+                        <a href="#sesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/perfil/perfil.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto que contiene los datos de la sesión actual del usuario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/perfil/perfil.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Array que contiene todos los usuarios registrados</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+/**
+ * Componente para mostrar y gestionar el perfil de usuario
+ * @selector app-perfil
+ * @templateUrl ./perfil.component.html
+ * @styleUrls [&#x27;./perfil.component.css&#x27;]
+ */
+@Component({
+  selector: &#x27;app-perfil&#x27;,
+  templateUrl: &#x27;./perfil.component.html&#x27;,
+  styleUrls: [&#x27;./perfil.component.css&#x27;],
+})
+export class PerfilComponent implements OnInit {
+  /**
+   * Objeto que contiene los datos de la sesión actual del usuario
+   * @type {any}
+   */
+  sesion: any &#x3D; null;
+
+  /**
+   * Array que contiene todos los usuarios registrados
+   * @type {any[]}
+   */
+  usuarios: any[] &#x3D; [];
+
+  /**
+   * Mensaje para mostrar feedback al usuario
+   * @type {string}
+   */
+  mensaje &#x3D; &#x27;&#x27;;
+
+  /**
+   * Método del ciclo de vida de Angular que se ejecuta al inicializar el componente
+   * @method ngOnInit
+   * @returns {void}
+   */
+  ngOnInit(): void {
+    const sesionStr &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    this.sesion &#x3D; sesionStr ? JSON.parse(sesionStr) : null;
+
+    const usuariosStr &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    this.usuarios &#x3D; usuariosStr ? JSON.parse(usuariosStr) : [];
+
+    // Buscar usuario completo y sincronizar
+    const usuarioEncontrado &#x3D; this.usuarios.find(
+      (u) &#x3D;&gt; u.usuario &#x3D;&#x3D;&#x3D; this.sesion.usuario
+    );
+    if (usuarioEncontrado) {
+      this.sesion &#x3D; { ...usuarioEncontrado };
+    }
+  }
+
+  /**
+   * Guarda los cambios realizados en el perfil del usuario
+   * Actualiza los datos en localStorage y muestra un mensaje de confirmación
+   * @method guardarCambios
+   * @returns {void}
+   */
+  guardarCambios() {
+    const index &#x3D; this.usuarios.findIndex(
+      (u) &#x3D;&gt; u.usuario &#x3D;&#x3D;&#x3D; this.sesion.usuario
+    );
+    if (index !&#x3D;&#x3D; -1) {
+      this.usuarios[index] &#x3D; { ...this.sesion };
+      localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(this.usuarios));
+      this.mensaje &#x3D; &#x27;✅ Cambios guardados correctamente.&#x27;;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;perfil container&quot;&gt;
+  &lt;div class&#x3D;&quot;row gap-0&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-4 avatar-container mb-2&quot;&gt;
+      &lt;div class&#x3D;&quot;card profile-card&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-person-square text-4xl&quot;&gt;&lt;/i&gt;
+          &lt;h4 class&#x3D;&quot;p-2&quot; id&#x3D;&quot;profileName&quot;&gt;{{ sesion.nombre }}&lt;/h4&gt;
+          &lt;p class&#x3D;&quot;&quot; id&#x3D;&quot;profileEmail&quot;&gt;{{ sesion.email }}&lt;/p&gt;
+          &lt;button class&#x3D;&quot;btn btn-change-photo&quot; id&#x3D;&quot;changePhoto&quot; disabled&gt;
+            Cambiar Foto
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;col-md-8 profile-form&quot;&gt;
+      &lt;div class&#x3D;&quot;card-header font-casona&quot;&gt;
+        &lt;h5&gt;Editar Perfil&lt;/h5&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;card form-container&quot;&gt;
+        &lt;div class&#x3D;&quot;inputs-container&quot;&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;editName&quot;&gt;Nombre Completo&lt;/label&gt;
+            &lt;input
+              [(ngModel)]&#x3D;&quot;sesion.nombre&quot;
+              type&#x3D;&quot;text&quot;
+              class&#x3D;&quot;form-control input&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group input&quot;&gt;
+            &lt;label for&#x3D;&quot;editName&quot;&gt;Nombre Usuario&lt;/label&gt;
+            &lt;input
+              [(ngModel)]&#x3D;&quot;sesion.usuario&quot;
+              type&#x3D;&quot;text&quot;
+              class&#x3D;&quot;form-control&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;Email&lt;/label&gt;
+            &lt;input
+              [(ngModel)]&#x3D;&quot;sesion.email&quot;
+              type&#x3D;&quot;email&quot;
+              class&#x3D;&quot;form-control&quot;
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;inputs-container2&quot;&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;currentPassword&quot;&gt;Contraseña Actual&lt;/label&gt;
+            &lt;input
+              [(ngModel)]&#x3D;&quot;sesion.password&quot;
+              type&#x3D;&quot;password&quot;
+              class&#x3D;&quot;form-control&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;currentPassword&quot;&gt;Tipo de Usuario&lt;/label&gt;
+            &lt;input [value]&#x3D;&quot;sesion.tipo&quot; class&#x3D;&quot;form-control&quot; disabled /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;button&quot;&gt;
+          &lt;button class&#x3D;&quot;btn btn-guardar-cambios&quot; (click)&#x3D;&quot;guardarCambios()&quot;&gt;
+            Guardar Cambios
+          &lt;/button&gt;
+          &lt;div
+            class&#x3D;&quot;text-success mt-3 text-center font-casona text-2xl&quot;
+            *ngIf&#x3D;&quot;mensaje&quot;
+          &gt;
+            {{ mensaje }}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./perfil.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.perfil.container {
+  padding-top: 2rem;
+  color: white;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-card {
+  border-radius: 16px;
+  background-color: var(--dark-green);
+  color: white;
+}
+
+.btn-change-photo {
+  border-radius: 24px;
+}
+.card-header {
+  background-color: var(--dark-green);
+  border-radius: 16px 16px 0 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-form .card {
+  background-color: var(--dark-green);
+  color: white;
+  border-radius: 0 0 16px 16px;
+  padding: 10px;
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0px 10px;
+  grid-template-areas:
+    &quot;inputs-container inputs-container2&quot;
+    &quot;button button&quot;;
+  height: fit-content;
+}
+
+.inputs-container {
+  grid-area: inputs-container;
+}
+.inputs-container2 {
+  grid-area: inputs-container2;
+}
+.button {
+  grid-area: button;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.btn-guardar-cambios {
+  width: fit-content;
+  border-radius: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border: 2px solid black;
+  &amp;:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.form-group {
+  padding-bottom: 1rem;
+}
+.form-control {
+  border-radius: 24px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="perfil container">  <div class="row gap-0">    <div class="col-md-4 avatar-container mb-2">      <div class="card profile-card">        <div class="card-body text-center">          <i class="bi bi-person-square text-4xl"></i>          <h4 class="p-2" id="profileName">{{ sesion.nombre }}</h4>          <p class="" id="profileEmail">{{ sesion.email }}</p>          <button class="btn btn-change-photo" id="changePhoto" disabled>            Cambiar Foto          </button>        </div>      </div>    </div>    <div class="col-md-8 profile-form">      <div class="card-header font-casona">        <h5>Editar Perfil</h5>      </div>      <div class="card form-container">        <div class="inputs-container">          <div class="form-group">            <label for="editName">Nombre Completo</label>            <input              [(ngModel)]="sesion.nombre"              type="text"              class="form-control input"            />          </div>          <div class="form-group input">            <label for="editName">Nombre Usuario</label>            <input              [(ngModel)]="sesion.usuario"              type="text"              class="form-control"            />          </div>          <div class="form-group">            <label class="form-label fw-bold">Email</label>            <input              [(ngModel)]="sesion.email"              type="email"              class="form-control"            />          </div>        </div>        <div class="inputs-container2">          <div class="form-group">            <label for="currentPassword">Contraseña Actual</label>            <input              [(ngModel)]="sesion.password"              type="password"              class="form-control"            />          </div>          <div class="form-group">            <label for="currentPassword">Tipo de Usuario</label>            <input [value]="sesion.tipo" class="form-control" disabled />          </div>        </div>        <div class="button">          <button class="btn btn-guardar-cambios" (click)="guardarCambios()">            Guardar Cambios          </button>          <div            class="text-success mt-3 text-center font-casona text-2xl"            *ngIf="mensaje"          >            {{ mensaje }}          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PerfilComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PerfilComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

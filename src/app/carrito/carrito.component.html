@@ -95,9 +95,13 @@
 </div>
 
 <div class="container ticket-container my-5" *ngIf="carrito.length === 0">
-  <div class="alert alert-info text-center">
+  <div class="text-center bg-[#4a5a36] p-4 rounded-2xl text-white font-casona">
     <h4>Tu carrito está vacío</h4>
     <p>Agrega entradas desde los eventos disponibles</p>
-    <a routerLink="/" class="btn btn-primary">Ver Eventos</a>
+    <a
+      routerLink="/"
+      class="no-underline text-white p-2 bg-black rounded-full text-4xl font-normal"
+      >Ver Eventos</a
+    >
   </div>
 </div>

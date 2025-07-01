@@ -1,6 +1,6 @@
 <div class="perfil container">
-  <div class="row">
-    <div class="col-md-4 avatar-container">
+  <div class="row gap-0">
+    <div class="col-md-4 avatar-container mb-2">
       <div class="card profile-card">
         <div class="card-body text-center">
           <i class="bi bi-person-square text-4xl"></i>
@@ -65,11 +65,13 @@
           <button class="btn btn-guardar-cambios" (click)="guardarCambios()">
             Guardar Cambios
           </button>
-          <div class="text-success mt-3 text-center fw-bold" *ngIf="mensaje">
+          <div
+            class="text-success mt-3 text-center font-casona text-2xl"
+            *ngIf="mensaje"
+          >
             {{ mensaje }}
           </div>
         </div>
-
       </div>
     </div>
   </div>

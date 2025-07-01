@@ -6,3 +6,90 @@
   border: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
+
+/* Table style */
+.tableContainer {
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0 2px 8px var(--dark-green);
+  border-radius: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--secondary-green);
+  color: var(--color-fondo);
+  position: sticky;
+  top: 0;
+}
+
+th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--primary-beige);
+}
+th:first-child {
+  border-top-left-radius: 16px;
+}
+th:last-child {
+  border-top-right-radius: 16px;
+}
+
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--primary-green);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--secondary-green);
+}
+tbody tr:nth-child(odd) button{
+  background-color: var(--primary-green);
+}
+
+tbody tr:hover {
+  background-color: var(--dark-green);
+  color: white;
+}
+
+td {
+  padding: 0.8rem 1.2rem;
+  color: var(--color-gris-oscuro);
+  border-bottom: 1px solid var(--color-detalle-claro);
+}
+
+
+td:not(:last-child) {
+  border-right: 1px solid var(--color-detalle-claro);
+}
+
+button {
+  background-color: var(--secondary-green);
+  color: var(--color-fondo);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin-right: 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover button {
+  background-color: var(--primary-beige);
+  color: black;
+}
+
+button:hover {
+  background-color: var(--color-principal);
+  transform: translateY(-1px);
+}

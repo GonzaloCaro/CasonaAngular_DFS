@@ -1,0 +1,1293 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CarritoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/carrito/carrito.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que gestiona el carrito de compras de entradas
+Permite agregar, modificar y eliminar entradas, así como realizar la compra</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;app-carrito&gt;&lt;/app-carrito&gt;</code></pre></div>
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-carrito</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./carrito.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./carrito.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#carrito" >carrito</a>
+                            </li>
+                            <li>
+                                <a href="#claveCarrito" >claveCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#tiposEntrada" >tiposEntrada</a>
+                            </li>
+                            <li>
+                                <a href="#total" >total</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarCantidad" >actualizarCantidad</a>
+                            </li>
+                            <li>
+                                <a href="#calcularTotal" >calcularTotal</a>
+                            </li>
+                            <li>
+                                <a href="#cambiarTipoEntrada" >cambiarTipoEntrada</a>
+                            </li>
+                            <li>
+                                <a href="#cargarCarrito" >cargarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#comprar" >comprar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#vaciarCarrito" >vaciarCarrito</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarCantidad"></a>
+                    <span class="name">
+                        <span ><b>actualizarCantidad</b></span>
+                        <a href="#actualizarCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarCantidad(cambio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la cantidad de entradas con un valor de cambio (+1 o -1)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cambio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Valor a sumar/restar a la cantidad actual (1 o -1)</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularTotal"></a>
+                    <span class="name">
+                        <span ><b>calcularTotal</b></span>
+                        <a href="#calcularTotal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularTotal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcula el total a pagar sumando todas las entradas del carrito</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarTipoEntrada"></a>
+                    <span class="name">
+                        <span ><b>cambiarTipoEntrada</b></span>
+                        <a href="#cambiarTipoEntrada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarTipoEntrada(nuevoTipo: "General" | "VIP" | "Premium")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el tipo de entrada y actualiza el precio correspondiente</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nuevoTipo</td>
+                                            <td>
+                                                        <code>&quot;General&quot; | &quot;VIP&quot; | &quot;Premium&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Nuevo tipo de entrada seleccionado</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarCarrito"></a>
+                    <span class="name">
+                        <span ><b>cargarCarrito</b></span>
+                        <a href="#cargarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga el carrito desde localStorage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comprar"></a>
+                    <span class="name">
+                        <span ><b>comprar</b></span>
+                        <a href="#comprar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>comprar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesa la compra de las entradas en el carrito</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida OnInit
+Inicializa el carrito al cargar el componente</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vaciarCarrito"></a>
+                    <span class="name">
+                        <span ><b>vaciarCarrito</b></span>
+                        <a href="#vaciarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vaciarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/carrito/carrito.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vacía completamente el carrito</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carrito"></a>
+                    <span class="name">
+                        <span ><b>carrito</b></span>
+                        <a href="#carrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/EntradaCarrito.html" target="_self" >EntradaCarrito[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/carrito/carrito.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de entradas en el carrito</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="claveCarrito"></a>
+                    <span class="name">
+                        <span ><b>claveCarrito</b></span>
+                        <a href="#claveCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/carrito/carrito.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clave única del carrito en localStorage (basada en el email del usuario)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tiposEntrada"></a>
+                    <span class="name">
+                        <span ><b>tiposEntrada</b></span>
+                        <a href="#tiposEntrada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { nombre: &#x27;General&#x27;, precio: 10000 },
+    { nombre: &#x27;VIP&#x27;, precio: 15000 },
+    { nombre: &#x27;Premium&#x27;, precio: 20000 },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/carrito/carrito.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tipos de entrada disponibles con sus precios</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/carrito/carrito.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Total a pagar por las entradas en el carrito</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+/**
+ * Interface que define la estructura de una entrada en el carrito
+ */
+interface EntradaCarrito {
+  /** Nombre del evento */
+  nombre: string;
+  /** Fecha del evento */
+  fecha: string;
+  /** Descripción del evento */
+  descripcion: string;
+  /** URL de la imagen del evento */
+  imagen: string;
+  /** Tipo de entrada (General, VIP o Premium) */
+  tipo_entrada: &#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;;
+  /** Precio de la entrada */
+  precio: number;
+  /** Cantidad de entradas */
+  cantidad: number;
+}
+
+/**
+ * Componente que gestiona el carrito de compras de entradas
+ * Permite agregar, modificar y eliminar entradas, así como realizar la compra
+ *
+ * @example
+ * &lt;app-carrito&gt;&lt;/app-carrito&gt;
+ */
+@Component({
+  selector: &#x27;app-carrito&#x27;,
+  templateUrl: &#x27;./carrito.component.html&#x27;,
+  styleUrls: [&#x27;./carrito.component.css&#x27;],
+})
+export class CarritoComponent implements OnInit {
+  /**
+   * Lista de entradas en el carrito
+   * @type {EntradaCarrito[]}
+   */
+  carrito: EntradaCarrito[] &#x3D; [];
+
+  /**
+   * Total a pagar por las entradas en el carrito
+   * @type {number}
+   */
+  total &#x3D; 0;
+
+  /**
+   * Clave única del carrito en localStorage (basada en el email del usuario)
+   * @type {string}
+   */
+  claveCarrito &#x3D; &#x27;&#x27;;
+
+  /**
+   * Tipos de entrada disponibles con sus precios
+   * @type {{nombre: string, precio: number}[]}
+   */
+  tiposEntrada &#x3D; [
+    { nombre: &#x27;General&#x27;, precio: 10000 },
+    { nombre: &#x27;VIP&#x27;, precio: 15000 },
+    { nombre: &#x27;Premium&#x27;, precio: 20000 },
+  ];
+
+  /**
+   * Método del ciclo de vida OnInit
+   * Inicializa el carrito al cargar el componente
+   */
+  ngOnInit(): void {
+    const sesionStr &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    const sesion &#x3D; sesionStr ? JSON.parse(sesionStr) : null;
+
+    if (sesion?.logueado) {
+      this.claveCarrito &#x3D; &#x27;carrito_&#x27; + sesion.email;
+      this.cargarCarrito();
+    }
+  }
+
+  /**
+   * Carga el carrito desde localStorage
+   * @returns {void}
+   */
+  cargarCarrito(): void {
+    const carritoGuardado &#x3D; localStorage.getItem(this.claveCarrito);
+    this.carrito &#x3D; carritoGuardado ? JSON.parse(carritoGuardado) : [];
+
+    // Limita a un solo evento en el carrito
+    if (this.carrito.length &gt; 1) {
+      this.carrito &#x3D; [this.carrito[0]];
+      localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+    }
+
+    this.calcularTotal();
+  }
+
+  /**
+   * Calcula el total a pagar sumando todas las entradas del carrito
+   * @returns {void}
+   */
+  calcularTotal(): void {
+    this.total &#x3D; this.carrito.reduce(
+      (sum, item) &#x3D;&gt; sum + item.precio * item.cantidad,
+      0
+    );
+  }
+
+  /**
+   * Cambia el tipo de entrada y actualiza el precio correspondiente
+   * @param {&#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;} nuevoTipo - Nuevo tipo de entrada seleccionado
+   * @returns {void}
+   */
+  cambiarTipoEntrada(nuevoTipo: &#x27;General&#x27; | &#x27;VIP&#x27; | &#x27;Premium&#x27;): void {
+    if (this.carrito.length &gt; 0) {
+      this.carrito[0].tipo_entrada &#x3D; nuevoTipo;
+      const tipoSeleccionado &#x3D; this.tiposEntrada.find(
+        (t) &#x3D;&gt; t.nombre &#x3D;&#x3D;&#x3D; nuevoTipo
+      );
+      if (tipoSeleccionado) {
+        this.carrito[0].precio &#x3D; tipoSeleccionado.precio;
+      }
+      localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+      this.calcularTotal();
+    }
+  }
+
+  /**
+   * Vacía completamente el carrito
+   * @returns {void}
+   */
+  vaciarCarrito(): void {
+    localStorage.removeItem(this.claveCarrito);
+    this.carrito &#x3D; [];
+    this.total &#x3D; 0;
+  }
+
+  /**
+   * Procesa la compra de las entradas en el carrito
+   * @returns {void}
+   * @throws {Alert} Muestra alerta si el carrito está vacío
+   */
+  comprar(): void {
+    if (this.carrito.length &#x3D;&#x3D;&#x3D; 0) {
+      alert(&#x27;Tu carrito está vacío.&#x27;);
+      return;
+    }
+
+    alert(&#x27;¡Compra realizada con éxito!&#x27;);
+    this.vaciarCarrito();
+  }
+
+  /**
+   * Actualiza la cantidad de entradas con un valor de cambio (+1 o -1)
+   * @param {number} cambio - Valor a sumar/restar a la cantidad actual (1 o -1)
+   * @returns {void}
+   */
+  actualizarCantidad(cambio: number): void {
+    if (this.carrito.length &gt; 0) {
+      const nuevaCantidad &#x3D; this.carrito[0].cantidad + cambio;
+      if (nuevaCantidad &gt;&#x3D; 1 &amp;&amp; nuevaCantidad &lt;&#x3D; 10) {
+        this.carrito[0].cantidad &#x3D; nuevaCantidad;
+        localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
+        this.calcularTotal();
+      }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container ticket-container my-5&quot; *ngIf&#x3D;&quot;carrito.length &gt; 0&quot;&gt;
+  &lt;div class&#x3D;&quot;card event-detail-card mb-4&quot;&gt;
+    &lt;div class&#x3D;&quot;row no-gutters&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-5&quot;&gt;
+        &lt;img [src]&#x3D;&quot;carrito[0].imagen&quot; class&#x3D;&quot;card-img&quot; alt&#x3D;&quot;Evento&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-7&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+          &lt;h2 class&#x3D;&quot;card-title&quot;&gt;{{ carrito[0].nombre }}&lt;/h2&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;{{ carrito[0].fecha }}&lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;{{ carrito[0].descripcion }}&lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;Lugar: Casona Encantada&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+    &lt;div class&#x3D;&quot;ticket-selection-card&quot;&gt;
+      &lt;div class&#x3D;&quot;card-header&quot;&gt;
+        &lt;h4&gt;Tu Entrada&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-body&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;ticketType&quot; class&#x3D;&quot;pb-2&quot;&gt;Tipo de Entrada&lt;/label&gt;
+          &lt;select
+            class&#x3D;&quot;form-control input&quot;
+            id&#x3D;&quot;ticketType&quot;
+            [(ngModel)]&#x3D;&quot;carrito[0].tipo_entrada&quot;
+            (change)&#x3D;&quot;cambiarTipoEntrada(carrito[0].tipo_entrada)&quot;
+          &gt;
+            &lt;option *ngFor&#x3D;&quot;let tipo of tiposEntrada&quot; [value]&#x3D;&quot;tipo.nombre&quot;&gt;
+              {{ tipo.nombre }} - ${{ tipo.precio | number }}
+            &lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;ticketQuantity&quot; class&#x3D;&quot;pb-2&quot;&gt;Cantidad&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-group count&quot;&gt;
+            &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-outline-secondary bg-red-500&quot;
+                type&#x3D;&quot;button&quot;
+                (click)&#x3D;&quot;actualizarCantidad(-1)&quot;
+                [disabled]&#x3D;&quot;carrito[0].cantidad &lt;&#x3D; 1&quot;
+              &gt;
+                -
+              &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;input
+              id&#x3D;&quot;ticketQuantity&quot;
+              type&#x3D;&quot;number&quot;
+              class&#x3D;&quot;form-control input text-center&quot;
+              [(ngModel)]&#x3D;&quot;carrito[0].cantidad&quot;
+              min&#x3D;&quot;1&quot;
+              max&#x3D;&quot;10&quot;
+              readonly
+            /&gt;
+            &lt;div class&#x3D;&quot;input-group-append&quot;&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-outline-secondary&quot;
+                type&#x3D;&quot;button&quot;
+                (click)&#x3D;&quot;actualizarCantidad(1)&quot;
+                [disabled]&#x3D;&quot;carrito[0].cantidad &gt;&#x3D; 10&quot;
+              &gt;
+                +
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;total-container mb-3 py-1&quot;&gt;
+          &lt;h5&gt;
+            Total: &lt;span&gt;${{ total | number }}&lt;/span&gt;
+          &lt;/h5&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;buttons&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;bg-red-500 p-1 px-3 rounded-full&quot;
+            placement&#x3D;&quot;bottom&quot;
+            ngbTooltip&#x3D;&quot;Vaciar Carrito&quot;
+            (click)&#x3D;&quot;vaciarCarrito()&quot;
+          &gt;
+            &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+          &lt;button class&#x3D;&quot;btn btn-purchase&quot; (click)&#x3D;&quot;comprar()&quot;&gt;
+            Continuar al Pago
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container ticket-container my-5&quot; *ngIf&#x3D;&quot;carrito.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+  &lt;div class&#x3D;&quot;text-center bg-[#4a5a36] p-4 rounded-2xl text-white font-casona&quot;&gt;
+    &lt;h4&gt;Tu carrito está vacío&lt;/h4&gt;
+    &lt;p&gt;Agrega entradas desde los eventos disponibles&lt;/p&gt;
+    &lt;a
+      routerLink&#x3D;&quot;/&quot;
+      class&#x3D;&quot;no-underline text-white p-2 bg-black rounded-full text-4xl font-normal&quot;
+      &gt;Ver Eventos&lt;/a
+    &gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./carrito.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilos para la selección de entradas */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+.event-detail-card {
+  border-radius: 16px;
+  margin-top: 2rem;
+  display: flex;
+  width: 60%;
+  background-color: transparent;
+  border: 2px solid var(--dark-green);
+  background-color: rgb(252, 252, 252, 0.2);
+}
+
+.card-img {
+  border-radius: 16px;
+}
+
+.ticket-selection-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--secondary-green);
+  background-color: var(--primary-green);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.ticket-selection-card .card-header {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  font-family: &quot;casona&quot;;
+}
+.card-body {
+  width: 100%;
+}
+
+.card-body .buttons {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-control.input{
+  border-radius: 16px !important;
+}
+.input-group.count{
+  gap: 0.5rem;
+}
+
+.btn-purchase {
+  align-items: center;
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 24px;
+}
+
+.btn-purchase:hover {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+}
+
+.total-container {
+  background-color: var(--primary-beige);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Estilos para el resumen de compra */
+.order-summary-card {
+  border: 1px solid var(--secondary-green);
+}
+
+.order-summary-card .card-header {
+  background-color: var(--primary-beige);
+}
+
+/* Estilos para la vista de éxito */
+.success-container {
+  background-color: var(--primary-white);
+  border-radius: 10px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container ticket-container my-5" *ngIf="carrito.length > 0">  <div class="card event-detail-card mb-4">    <div class="row no-gutters">      <div class="col-md-5">        <img [src]="carrito[0].imagen" class="card-img" alt="Evento" />      </div>      <div class="col-md-7">        <div class="card-body">          <h2 class="card-title">{{ carrito[0].nombre }}</h2>          <p class="card-text">{{ carrito[0].fecha }}</p>          <p class="card-text">{{ carrito[0].descripcion }}</p>          <p class="card-text">Lugar: Casona Encantada</p>        </div>      </div>    </div>  </div>  <div class="row justify-content-center">    <div class="ticket-selection-card">      <div class="card-header">        <h4>Tu Entrada</h4>      </div>      <div class="card-body">        <div class="form-group">          <label for="ticketType" class="pb-2">Tipo de Entrada</label>          <select            class="form-control input"            id="ticketType"            [(ngModel)]="carrito[0].tipo_entrada"            (change)="cambiarTipoEntrada(carrito[0].tipo_entrada)"          >            <option *ngFor="let tipo of tiposEntrada" [value]="tipo.nombre">              {{ tipo.nombre }} - ${{ tipo.precio | number }}            </option>          </select>        </div>        <div class="form-group">          <label for="ticketQuantity" class="pb-2">Cantidad</label>          <div class="input-group count">            <div class="input-group-prepend">              <button                class="btn btn-outline-secondary bg-red-500"                type="button"                (click)="actualizarCantidad(-1)"                [disabled]="carrito[0].cantidad <= 1"              >                -              </button>            </div>            <input              id="ticketQuantity"              type="number"              class="form-control input text-center"              [(ngModel)]="carrito[0].cantidad"              min="1"              max="10"              readonly            />            <div class="input-group-append">              <button                class="btn btn-outline-secondary"                type="button"                (click)="actualizarCantidad(1)"                [disabled]="carrito[0].cantidad >= 10"              >                +              </button>            </div>          </div>        </div>        <div class="total-container mb-3 py-1">          <h5>            Total: <span>${{ total | number }}</span>          </h5>        </div>        <div class="buttons">          <button            type="button"            class="bg-red-500 p-1 px-3 rounded-full"            placement="bottom"            ngbTooltip="Vaciar Carrito"            (click)="vaciarCarrito()"          >            <i class="bi bi-trash"></i>          </button>          <button class="btn btn-purchase" (click)="comprar()">            Continuar al Pago          </button>        </div>      </div>    </div>  </div></div><div class="container ticket-container my-5" *ngIf="carrito.length === 0">  <div class="text-center bg-[#4a5a36] p-4 rounded-2xl text-white font-casona">    <h4>Tu carrito está vacío</h4>    <p>Agrega entradas desde los eventos disponibles</p>    <a      routerLink="/"      class="no-underline text-white p-2 bg-black rounded-full text-4xl font-normal"      >Ver Eventos</a    >  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CarritoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarritoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

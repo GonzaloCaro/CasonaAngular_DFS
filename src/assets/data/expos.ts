@@ -1,3 +1,13 @@
+/**
+ * Listado de exposiciones futuras con sus detalles
+ * @type {Array<{
+ *   id: string,
+ *   src: string,
+ *   title: string,
+ *   date: string,
+ *   description: string
+ * }>}
+ */
 export const exposFuturas = [
   {
     id: '1',
@@ -9,7 +19,7 @@ export const exposFuturas = [
   {
     id: '2',
     src: '../assets/img/Expo_Witchcraft.png',
-    title: 'Expo Monster Dolls',
+    title: 'Expo Witchcraft',
     date: '08/06/2025',
     description: 'Ven a vivir la 2da experiencia de estar rodeado de mostruos',
   },
@@ -22,6 +32,14 @@ export const exposFuturas = [
   },
 ];
 
+/**
+ * Listado de exposiciones pasadas con sus detalles
+ * @type {Array<{
+ *   src: string,
+ *   title: string,
+ *   description: string
+ * }>}
+ */
 export const exposPasadas = [
   {
     src: '../assets/img/expo24y25_mayo.png',

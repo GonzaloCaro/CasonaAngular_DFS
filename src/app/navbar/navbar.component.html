@@ -54,10 +54,7 @@
     </div>
     <a class="navbar-brand" routerLink="/"> Casona Encantada </a>
   </div>
-  {{ estaLogueado() }}
   <div class="" id="navbarNav">
-    <!-- Si hay sesión activa -->
-
     <div class="">
       <div ngbDropdown display="dynamic" class="custom-dropdown">
         <button
@@ -79,13 +76,13 @@
           <button *ngIf="!estaLogueado()" class="dropdown-item" type="button">
             <a class="nav-link" routerLink="/registro">Registro</a>
           </button>
-          <button *ngIf="estaLogueado()" class="dropdown-item" type="button">
+          <button *ngIf="estaLogueado() && isAdmin()" class="dropdown-item" type="button">
             <a class="nav-link" routerLink="/admin">Panel Admin</a>
           </button>
           <button *ngIf="estaLogueado()" class="dropdown-item" type="button">
             <a class="nav-link" routerLink="/perfil">Mi Perfil</a>
           </button>
-          <button *ngIf="estaLogueado()" class="dropdown-item" type="button">
+          <button *ngIf="estaLogueado()  && !isAdmin()" class="dropdown-item" type="button">
             <a class="nav-link" routerLink="/carrito">Carrito</a>
           </button>
           <button *ngIf="estaLogueado()" class="dropdown-item" type="button">

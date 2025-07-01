@@ -36,13 +36,6 @@ header {
   text-align: center;
   padding-bottom: 1rem;
 }
-/* Responsive design: adapta el diseño a pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .categorias {
-    flex-direction: column; /* En celulares, mostrar tarjetas en columna */
-    align-items: center; /* Centrar verticalmente */
-  }
-}
 
 html,
 body {

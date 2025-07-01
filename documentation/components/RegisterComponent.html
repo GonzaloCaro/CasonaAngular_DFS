@@ -1,0 +1,1251 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  RegisterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/register/register.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para el registro de nuevos usuarios
+Maneja la validación de datos y el almacenamiento del nuevo usuario</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-register</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./register.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./register.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <a href="#exito" >exito</a>
+                            </li>
+                            <li>
+                                <a href="#registerForm" >registerForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#edadMinimaValidator" >edadMinimaValidator</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#passwordsIgualesValidator" >passwordsIgualesValidator</a>
+                            </li>
+                            <li>
+                                <a href="#registrar" >registrar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f" >f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/register/register.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servicio para construir formularios reactivos</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servicio para navegación entre rutas</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="edadMinimaValidator"></a>
+                    <span class="name">
+                        <span ><b>edadMinimaValidator</b></span>
+                        <a href="#edadMinimaValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>edadMinimaValidator(control: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/register/register.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador personalizado para verificar la edad mínima (14 años)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Control del formulario a validar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidationErrors | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Objeto con error o null si es válido</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/register/register.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inicializa el componente y configura el formulario con validaciones</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordsIgualesValidator"></a>
+                    <span class="name">
+                        <span ><b>passwordsIgualesValidator</b></span>
+                        <a href="#passwordsIgualesValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>passwordsIgualesValidator(group: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/register/register.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador personalizado para verificar que las contraseñas coincidan</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>group</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Grupo de controles del formulario</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidationErrors | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Objeto con error o null si coinciden</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registrar"></a>
+                    <span class="name">
+                        <span ><b>registrar</b></span>
+                        <a href="#registrar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registrar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/register/register.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesa el registro del nuevo usuario
+Valida el formulario, almacena el usuario y muestra feedback</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/register/register.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje para mostrar errores en el registro</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exito"></a>
+                    <span class="name">
+                        <span ><b>exito</b></span>
+                        <a href="#exito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/register/register.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje para mostrar éxito en el registro</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerForm"></a>
+                    <span class="name">
+                        <span ><b>registerForm</b></span>
+                        <a href="#registerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/register/register.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo para el registro de usuarios</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/register/register.component.ts:137</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter para acceso simplificado a los controles del formulario desde el template</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+} from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Componente para el registro de nuevos usuarios
+ * Maneja la validación de datos y el almacenamiento del nuevo usuario
+ * @selector app-register
+ * @templateUrl ./register.component.html
+ * @styleUrls [&#x27;./register.component.css&#x27;]
+ */
+@Component({
+  selector: &#x27;app-register&#x27;,
+  templateUrl: &#x27;./register.component.html&#x27;,
+  styleUrls: [&#x27;./register.component.css&#x27;],
+})
+export class RegisterComponent implements OnInit {
+  /**
+   * Formulario reactivo para el registro de usuarios
+   * @type {FormGroup}
+   */
+  registerForm!: FormGroup;
+
+  /**
+   * Mensaje para mostrar errores en el registro
+   * @type {string}
+   */
+  error: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Mensaje para mostrar éxito en el registro
+   * @type {string}
+   */
+  exito: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Constructor del componente
+   * @constructor
+   * @param {FormBuilder} fb - Servicio para construir formularios reactivos
+   * @param {Router} router - Servicio para navegación entre rutas
+   */
+  constructor(private fb: FormBuilder, private router: Router) {}
+
+  /**
+   * Inicializa el componente y configura el formulario con validaciones
+   * @method ngOnInit
+   * @returns {void}
+   */
+  ngOnInit(): void {
+    this.registerForm &#x3D; this.fb.group(
+      {
+        nombre: [&#x27;&#x27;, Validators.required],
+        usuario: [&#x27;&#x27;, [Validators.required, Validators.minLength(4)]],
+        email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+        fechaNacimiento: [&#x27;&#x27;, [Validators.required, this.edadMinimaValidator]],
+        password: [&#x27;&#x27;, [Validators.required, Validators.minLength(4)]],
+        password2: [&#x27;&#x27;, Validators.required],
+      },
+      { validators: [this.passwordsIgualesValidator] }
+    );
+  }
+
+  /**
+   * Validador personalizado para verificar la edad mínima (14 años)
+   * @method edadMinimaValidator
+   * @param {AbstractControl} control - Control del formulario a validar
+   * @returns {ValidationErrors | null} - Objeto con error o null si es válido
+   */
+  edadMinimaValidator(control: AbstractControl): ValidationErrors | null {
+    const fecha &#x3D; new Date(control.value);
+    const hoy &#x3D; new Date();
+    let edad &#x3D; hoy.getFullYear() - fecha.getFullYear();
+    const mes &#x3D; hoy.getMonth() - fecha.getMonth();
+
+    if (mes &lt; 0 || (mes &#x3D;&#x3D;&#x3D; 0 &amp;&amp; hoy.getDate() &lt; fecha.getDate())) {
+      edad--;
+    }
+    return edad &lt; 14 ? { edadMinima: true } : null;
+  }
+
+  /**
+   * Validador personalizado para verificar que las contraseñas coincidan
+   * @method passwordsIgualesValidator
+   * @param {AbstractControl} group - Grupo de controles del formulario
+   * @returns {ValidationErrors | null} - Objeto con error o null si coinciden
+   */
+  passwordsIgualesValidator(group: AbstractControl): ValidationErrors | null {
+    const pass1 &#x3D; group.get(&#x27;password&#x27;)?.value;
+    const pass2 &#x3D; group.get(&#x27;password2&#x27;)?.value;
+    return pass1 &#x3D;&#x3D;&#x3D; pass2 ? null : { contrasenasNoCoinciden: true };
+  }
+
+  /**
+   * Procesa el registro del nuevo usuario
+   * Valida el formulario, almacena el usuario y muestra feedback
+   * @method registrar
+   * @returns {void}
+   */
+  registrar() {
+    this.error &#x3D; &#x27;&#x27;;
+    this.exito &#x3D; &#x27;&#x27;;
+
+    if (this.registerForm.invalid) {
+      this.error &#x3D; &#x27;Revisa los campos, hay errores en el formulario.&#x27;;
+      return;
+    }
+
+    const { nombre, usuario, email, password } &#x3D; this.registerForm.value;
+
+    const nuevoUsuario &#x3D; {
+      nombre,
+      usuario,
+      email,
+      password,
+      tipo: &#x27;usuario&#x27;,
+    };
+
+    const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+
+    this.exito &#x3D; &#x27;Usuario registrado con éxito. Ahora puedes iniciar sesión.&#x27;;
+    setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;/login&#x27;]), 1500);
+  }
+
+  /**
+   * Getter para acceso simplificado a los controles del formulario desde el template
+   * @method f
+   * @returns {AbstractControl} - Controles del formulario
+   */
+  get f() {
+    return this.registerForm.controls;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;main class&#x3D;&quot;container mt-5&quot;&gt;
+  &lt;div class&#x3D;&quot;auth-container&quot;&gt;
+    &lt;div class&#x3D;&quot;auth-card&quot;&gt;
+      &lt;div class&#x3D;&quot;title-login&quot;&gt;
+        &lt;img
+          src&#x3D;&quot;../../favicon.ico&quot;
+          class&#x3D;&quot;icon-login&quot;
+          alt&#x3D;&quot;Logo&quot;
+          width&#x3D;&quot;100&quot;
+        /&gt;
+        &lt;h1 class&#x3D;&quot;mb-2 text-center&quot;&gt;Registro de Usuario&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;form
+        [formGroup]&#x3D;&quot;registerForm&quot;
+        (ngSubmit)&#x3D;&quot;registrar()&quot;
+        novalidate
+        class&#x3D;&quot;form-container&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;inputs-container&quot;&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+            &lt;input
+              id&#x3D;&quot;nombre&quot;
+              type&#x3D;&quot;text&quot;
+              formControlName&#x3D;&quot;nombre&quot;
+              class&#x3D;&quot;form-control input&quot;
+              placeholder&#x3D;&quot;Tu nombre&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;f[&#x27;nombre&#x27;].invalid &amp;&amp; f[&#x27;nombre&#x27;].touched&quot;
+            &gt;
+              Nombre es obligatorio.
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;usuario&quot; class&#x3D;&quot;form-label&quot;&gt;Usuario&lt;/label&gt;
+            &lt;input
+              id&#x3D;&quot;usuario&quot;
+              type&#x3D;&quot;text&quot;
+              formControlName&#x3D;&quot;usuario&quot;
+              class&#x3D;&quot;form-control input&quot;
+              placeholder&#x3D;&quot;Nombre de usuario&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;f[&#x27;usuario&#x27;].invalid &amp;&amp; f[&#x27;usuario&#x27;].touched&quot;
+            &gt;
+              Usuario es obligatorio y debe tener al menos 4 caracteres.
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;form-label&quot;&gt;Correo electrónico&lt;/label&gt;
+            &lt;input
+              id&#x3D;&quot;email&quot;
+              type&#x3D;&quot;email&quot;
+              formControlName&#x3D;&quot;email&quot;
+              class&#x3D;&quot;form-control input input&quot;
+              placeholder&#x3D;&quot;ejemplo@email.com&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;f[&#x27;email&#x27;].invalid &amp;&amp; f[&#x27;email&#x27;].touched&quot;
+            &gt;
+              Ingresa un email válido.
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;inputs-container2&quot;&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;fechaNacimiento&quot; class&#x3D;&quot;form-label&quot;
+              &gt;Fecha de nacimiento&lt;/label
+            &gt;
+            &lt;input
+              id&#x3D;&quot;fechaNacimiento&quot;
+              type&#x3D;&quot;date&quot;
+              formControlName&#x3D;&quot;fechaNacimiento&quot;
+              class&#x3D;&quot;form-control input&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;f[&#x27;fechaNacimiento&#x27;].errors?.[&#x27;edadMinima&#x27;] &amp;&amp; f[&#x27;fechaNacimiento&#x27;].touched&quot;
+            &gt;
+              Debes tener al menos 14 años.
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;password&quot; class&#x3D;&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+            &lt;input
+              id&#x3D;&quot;password&quot;
+              type&#x3D;&quot;password&quot;
+              formControlName&#x3D;&quot;password&quot;
+              class&#x3D;&quot;form-control input&quot;
+              placeholder&#x3D;&quot;••••••&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;f[&#x27;password&#x27;].invalid &amp;&amp; f[&#x27;password&#x27;].touched&quot;
+            &gt;
+              La contraseña debe tener al menos 4 caracteres.
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;password2&quot; class&#x3D;&quot;form-label&quot;
+              &gt;Repite la contraseña&lt;/label
+            &gt;
+            &lt;input
+              id&#x3D;&quot;password2&quot;
+              type&#x3D;&quot;password&quot;
+              formControlName&#x3D;&quot;password2&quot;
+              class&#x3D;&quot;form-control input&quot;
+              placeholder&#x3D;&quot;••••••&quot;
+            /&gt;
+            &lt;div
+              class&#x3D;&quot;text-danger&quot;
+              *ngIf&#x3D;&quot;registerForm.errors?.[&#x27;contrasenasNoCoinciden&#x27;] &amp;&amp; f[&#x27;password2&#x27;].touched&quot;
+            &gt;
+              Las contraseñas no coinciden.
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;button&quot;&gt;
+          &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-register px-4&quot;&gt;
+            Registrarse
+          &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-12 text-center&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;error&quot; class&#x3D;&quot;alert alert-danger mt-3&quot;&gt;{{ error }}&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;exito&quot; class&#x3D;&quot;alert alert-success mt-3&quot;&gt;{{ exito }}&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./register.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon-login {
+  width: 100px;
+  border-radius: 100%;
+}
+
+.auth-card {
+  width: 100%;
+  height: fit-content;
+  gap: 2rem;
+  background-color: rgb(252, 252, 252, 0.2);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h2 {
+  margin-top: 15px;
+  font-family: &quot;casona&quot;;
+}
+
+.input {
+  border-radius: 16px;
+}
+
+.toggle-password {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0px 10px;
+  grid-template-areas:
+    &quot;inputs-container inputs-container2&quot;
+    &quot;button button&quot;;
+  height: fit-content;
+}
+.inputs-container {
+  grid-area: inputs-container;
+}
+.inputs-container2 {
+  grid-area: inputs-container2;
+}
+.button {
+  grid-area: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+.form-group {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  border-radius: 16px;
+}
+.form-control:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.btn-register {
+  width: fit-content;
+  border-radius: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  &amp;:hover {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+  }
+}
+.redirect {
+  color: black;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><main class="container mt-5">  <div class="auth-container">    <div class="auth-card">      <div class="title-login">        <img          src="../../favicon.ico"          class="icon-login"          alt="Logo"          width="100"        />        <h1 class="mb-2 text-center">Registro de Usuario</h1>      </div>      <form        [formGroup]="registerForm"        (ngSubmit)="registrar()"        novalidate        class="form-container"      >        <div class="inputs-container">          <div class="form-group">            <label for="nombre" class="form-label">Nombre</label>            <input              id="nombre"              type="text"              formControlName="nombre"              class="form-control input"              placeholder="Tu nombre"            />            <div              class="text-danger"              *ngIf="f[\'nombre\'].invalid && f[\'nombre\'].touched"            >              Nombre es obligatorio.            </div>          </div>          <div class="form-group">            <label for="usuario" class="form-label">Usuario</label>            <input              id="usuario"              type="text"              formControlName="usuario"              class="form-control input"              placeholder="Nombre de usuario"            />            <div              class="text-danger"              *ngIf="f[\'usuario\'].invalid && f[\'usuario\'].touched"            >              Usuario es obligatorio y debe tener al menos 4 caracteres.            </div>          </div>          <div class="form-group">            <label for="email" class="form-label">Correo electrónico</label>            <input              id="email"              type="email"              formControlName="email"              class="form-control input input"              placeholder="ejemplo@email.com"            />            <div              class="text-danger"              *ngIf="f[\'email\'].invalid && f[\'email\'].touched"            >              Ingresa un email válido.            </div>          </div>        </div>        <div class="inputs-container2">          <div class="form-group">            <label for="fechaNacimiento" class="form-label"              >Fecha de nacimiento</label            >            <input              id="fechaNacimiento"              type="date"              formControlName="fechaNacimiento"              class="form-control input"            />            <div              class="text-danger"              *ngIf="f[\'fechaNacimiento\'].errors?.[\'edadMinima\'] && f[\'fechaNacimiento\'].touched"            >              Debes tener al menos 14 años.            </div>          </div>          <div class="form-group">            <label for="password" class="form-label">Contraseña</label>            <input              id="password"              type="password"              formControlName="password"              class="form-control input"              placeholder="••••••"            />            <div              class="text-danger"              *ngIf="f[\'password\'].invalid && f[\'password\'].touched"            >              La contraseña debe tener al menos 4 caracteres.            </div>          </div>          <div class="form-group">            <label for="password2" class="form-label"              >Repite la contraseña</label            >            <input              id="password2"              type="password"              formControlName="password2"              class="form-control input"              placeholder="••••••"            />            <div              class="text-danger"              *ngIf="registerForm.errors?.[\'contrasenasNoCoinciden\'] && f[\'password2\'].touched"            >              Las contraseñas no coinciden.            </div>          </div>        </div>        <div class="button">          <button type="submit" class="btn btn-register px-4">            Registrarse          </button>        </div>        <div class="col-12 text-center">          <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>          <div *ngIf="exito" class="alert alert-success mt-3">{{ exito }}</div>        </div>      </form>    </div>  </div></main></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardLoaderComponent', 'selector': 'app-card-loader'},{'name': 'CarouselImagesComponent', 'selector': 'app-carousel-images'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EventoFormComponent', 'selector': 'app-evento-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RegisterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,5 +1,5 @@
 <div class="container mt-5" *ngIf="inicializado">
-  <div class="d-flex justify-content-center gap-3 mb-4">
+  <div class="d-flex justify-content-center gap-3 mb-4 font-casona">
     <button class="btn btn-primary" (click)="mostrarPanel('usuarios')">
       Usuarios
     </button>
@@ -10,61 +10,92 @@
 
   <!-- Tabla de usuarios -->
   <div *ngIf="mostrarUsuarios">
-    <h2 class="text-center mb-4">Administrar Usuarios</h2>
-    <table class="table table-bordered table-hover">
-      <thead class="table-dark">
-        <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Tipo</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.tipo }}</td>
-          <td>
-            <button
-              class="btn btn-danger btn-sm"
-              (click)="eliminarUsuario(usuario.email)"
-            >
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h2 class="text-center mb-4 font-casona">Administrar Usuarios</h2>
+    <div class="tableContainer">
+      <table>
+        <thead class="">
+          <tr class="font-casona">
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.tipo }}</td>
+            <td>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="eliminarUsuario(usuario.email)"
+                ngbTooltip="Eliminar usuario"
+                placement="bottom"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- Tabla de eventos -->
-  <div *ngIf="!mostrarUsuarios">
-    <h2 class="text-center mb-4">Administrar Eventos</h2>
-    <table class="table table-bordered table-hover">
-      <thead class="table-dark">
-        <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Tipo</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.tipo }}</td>
-          <td>
-            <button
-              class="btn btn-danger btn-sm"
-              (click)="eliminarUsuario(usuario.email)"
-            >
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="flex flex-col items-center" *ngIf="!mostrarUsuarios">
+    <h2 class="text-center mb-4 font-casona">Administrar Eventos</h2>
+    <button
+      class="m-auto mb-4 hover:text-white font-casona"
+      (click)="agregarNuevoEvento()"
+    >
+      Agregar nuevo evento
+    </button>
+    <div class="tableContainer">
+      <table>
+        <thead>
+          <tr class="font-casona">
+            <th>Evento</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Imagen</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let evento of eventos">
+            <td>{{ evento.title }}</td>
+            <td>{{ evento.date | date : "dd/MM/yyyy" }}</td>
+            <td>{{ evento.description }}</td>
+            <td>
+              <img
+                [src]="evento.src"
+                style="max-width: 100px; max-height: 60px"
+                *ngIf="evento.src"
+              />
+              <span *ngIf="!evento.src">Sin imagen</span>
+            </td>
+            <td class="flex gap-2">
+              <button
+                class="btn btn-warning btn-sm"
+                (click)="editarEvento(evento)"
+                ngbTooltip="Editar evento"
+                placement="bottom"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="eliminarEvento(evento.id)"
+                ngbTooltip="Eliminar evento"
+                placement="bottom"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
