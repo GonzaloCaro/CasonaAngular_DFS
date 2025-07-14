@@ -61,24 +61,17 @@ export class CardLoaderComponent implements OnInit {
    * @returns {void}
    */
   cargarEventos(): void {
-    const eventosStr = localStorage.getItem('eventos');
-
-    if (eventosStr) {
-      this.exposFuturas = JSON.parse(eventosStr);
-    } else {
-      // Cargar desde GitHub Pages
-      this.http
-        .get<any>('https://gonzalocaro.github.io/expos/exposiciones.json')
-        .subscribe({
-          next: (data) => {
-            this.exposFuturas = data.exposFuturas;
-            localStorage.setItem('eventos', JSON.stringify(this.exposFuturas));
-          },
-          error: (err) => {
-            console.error('Error cargando eventos desde GitHub Pages:', err);
-          },
-        });
-    }
+    this.http
+      .get<any>('https://gonzalocaro.github.io/expos/exposiciones.json')
+      .subscribe({
+        next: (data) => {
+          this.exposFuturas = data.exposFuturas;
+          localStorage.setItem('eventos', JSON.stringify(this.exposFuturas));
+        },
+        error: (err) => {
+          console.error('Error cargando eventos desde GitHub Pages:', err);
+        },
+      });
   }
 
   /**
