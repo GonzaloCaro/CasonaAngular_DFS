@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { exposFuturas } from '../../assets/data/expos';
 import { ActivatedRoute } from '@angular/router';
 
 /**
@@ -45,7 +45,7 @@ export class CardLoaderComponent implements OnInit {
    * Constructor del componente
    * @param {ActivatedRoute} route - Servicio para acceder a parámetros de ruta
    */
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   /**
    * Método del ciclo de vida OnInit
@@ -62,12 +62,22 @@ export class CardLoaderComponent implements OnInit {
    */
   cargarEventos(): void {
     const eventosStr = localStorage.getItem('eventos');
-    this.exposFuturas = eventosStr ? JSON.parse(eventosStr) : [];
 
-    // Si no hay eventos, carga los iniciales
-    if (this.exposFuturas.length === 0) {
-      this.exposFuturas = [...exposFuturas];
-      localStorage.setItem('eventos', JSON.stringify(this.exposFuturas));
+    if (eventosStr) {
+      this.exposFuturas = JSON.parse(eventosStr);
+    } else {
+      // Cargar desde GitHub Pages
+      this.http
+        .get<any>('https://gonzalocaro.github.io/expos/exposiciones.json')
+        .subscribe({
+          next: (data) => {
+            this.exposFuturas = data.exposFuturas;
+            localStorage.setItem('eventos', JSON.stringify(this.exposFuturas));
+          },
+          error: (err) => {
+            console.error('Error cargando eventos desde GitHub Pages:', err);
+          },
+        });
     }
   }
 

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -43,6 +44,7 @@ import { EventoFormComponent } from './evento-form/evento-form.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     NgbCollapseModule,
   ],
   providers: [],

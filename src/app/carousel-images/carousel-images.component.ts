@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   NgbCarousel,
   NgbSlideEvent,
@@ -29,28 +30,27 @@ interface Expos {
   templateUrl: './carousel-images.component.html',
   styleUrls: ['./carousel-images.component.css'],
 })
-export class CarouselImagesComponent {
+export class CarouselImagesComponent implements OnInit {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http
+      .get<any>('https://gonzalocaro.github.io/expos/exposiciones.json')
+      .subscribe({
+        next: (data) => {
+          this.exposPasadas = data.exposPasadas;
+        },
+        error: (err) => {
+          console.error('Error al cargar expos pasadas:', err);
+        },
+      });
+  }
+
   /**
    * Lista de exposiciones pasadas a mostrar en el carrusel
    * @type {Expos[]}
    */
-  exposPasadas: Expos[] = [
-    {
-      src: '../assets/img/expo24y25_mayo.png',
-      title: 'Dia de los Patrimonios',
-      description: '',
-    },
-    {
-      src: '../assets/img/expo22_mayo.png',
-      title: 'Junta Dark Moon',
-      description: '',
-    },
-    {
-      src: '../assets/img/expo17y18_mayo.png',
-      title: 'Expo Etherica',
-      description: '',
-    },
-  ];
+  exposPasadas: Expos[] = [];
 
   /**
    * Indica si el carrusel está pausado
