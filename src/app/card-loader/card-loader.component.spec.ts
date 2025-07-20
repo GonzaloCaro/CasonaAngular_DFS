@@ -1,13 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardLoaderComponent } from './card-loader.component';
-import { By } from '@angular/platform-browser';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CardLoaderComponent', () => {
   let component: CardLoaderComponent;
   let fixture: ComponentFixture<CardLoaderComponent>;
+  let httpMock: HttpTestingController;
 
-  // Mock de datos
   const mockExpos = [
     {
       id: '1',
@@ -27,41 +30,42 @@ describe('CardLoaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [CardLoaderComponent],
     });
 
     fixture = TestBed.createComponent(CardLoaderComponent);
     component = fixture.componentInstance;
+    httpMock = TestBed.inject(HttpTestingController);
 
-    // Limpiar todos los spies antes de cada test
-    spyOn(localStorage, 'setItem').and.callThrough();
+    spyOn(localStorage, 'setItem').and.callFake(() => {});
+    spyOn(window, 'alert').and.callFake(() => {});
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load eventos from localStorage on init', () => {
-    spyOn(localStorage, 'getItem').and.callFake((key: string) =>
-      key === 'eventos' ? JSON.stringify(mockExpos) : null
+  it('should load eventos from HTTP and store in localStorage', () => {
+    component.ngOnInit();
+
+    const req = httpMock.expectOne(
+      'https://gonzalocaro.github.io/expos/exposiciones.json'
     );
+    expect(req.request.method).toBe('GET');
+    req.flush({ exposFuturas: mockExpos });
 
-    component.ngOnInit();
     expect(component.exposFuturas.length).toBe(2);
-    expect(component.exposFuturas[0].title).toBe('Evento 1');
-  });
-
-  it('should load default eventos if localStorage is empty', () => {
-    spyOn(localStorage, 'getItem').and.returnValue(null);
-
-    component.ngOnInit();
-    expect(component.exposFuturas.length).toBeGreaterThan(0);
     expect(localStorage.setItem).toHaveBeenCalled();
   });
 
   it('should show alert when trying to add to cart without session', () => {
-    spyOn(window, 'alert');
+    spyOn(localStorage, 'getItem').and.returnValue(null);
+
     component.agregarAlCarrito(mockExpos[0]);
     expect(window.alert).toHaveBeenCalledWith(
       'Debes iniciar sesión como usuario para agregar al carrito.'
@@ -81,9 +85,6 @@ describe('CardLoaderComponent', () => {
       return null;
     });
 
-    spyOn(window, 'alert');
-
-    component.sesion = mockSesion;
     component.agregarAlCarrito(mockExpos[0]);
 
     expect(localStorage.setItem).toHaveBeenCalled();
@@ -102,8 +103,12 @@ describe('CardLoaderComponent', () => {
     const mockCarrito = [
       {
         nombre: 'Evento 1',
-        cantidad: 1,
+        fecha: '2023-12-01',
+        descripcion: 'Descripción 1',
+        imagen: 'image1.jpg',
+        tipo_entrada: 'General',
         precio: 10000,
+        cantidad: 1,
       },
     ];
 
@@ -113,7 +118,6 @@ describe('CardLoaderComponent', () => {
       return null;
     });
 
-    component.sesion = mockSesion;
     component.agregarAlCarrito(mockExpos[0]);
 
     const expectedCarrito = [
@@ -137,9 +141,7 @@ describe('CardLoaderComponent', () => {
     };
 
     spyOn(localStorage, 'getItem').and.returnValue(JSON.stringify(mockSesion));
-    spyOn(window, 'alert');
 
-    component.sesion = mockSesion;
     component.agregarAlCarrito(mockExpos[0]);
 
     expect(window.alert).toHaveBeenCalledWith(

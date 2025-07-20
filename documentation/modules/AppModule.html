@@ -447,7 +447,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgbCollapseModule, NgbModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { NgbCollapseModule, NgbModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
@@ -492,6 +493,7 @@ import { EventoFormComponent } from &#x27;./evento-form/evento-form.component&#x
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     NgbCollapseModule,
   ],
   providers: [],

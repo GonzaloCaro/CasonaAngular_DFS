@@ -248,7 +248,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(route: ActivatedRoute)</code>
+<code>constructor(route: ActivatedRoute, http: HttpClient)</code>
                     </td>
                 </tr>
                         <tr>
@@ -291,6 +291,20 @@
 
                                                         </td>
                                                 </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -329,8 +343,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="90"
-                                    class="link-to-prism">src/app/card-loader/card-loader.component.ts:90</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/card-loader/card-loader.component.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -489,8 +503,8 @@ Carga los eventos y verifica la sesión al inicializar el componente</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/card-loader/card-loader.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/card-loader/card-loader.component.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -597,8 +611,8 @@ Carga los eventos y verifica la sesión al inicializar el componente</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { exposFuturas } from &#x27;../../assets/data/expos&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 
 /**
@@ -644,7 +658,7 @@ export class CardLoaderComponent implements OnInit {
    * Constructor del componente
    * @param {ActivatedRoute} route - Servicio para acceder a parámetros de ruta
    */
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   /**
    * Método del ciclo de vida OnInit
@@ -660,14 +674,17 @@ export class CardLoaderComponent implements OnInit {
    * @returns {void}
    */
   cargarEventos(): void {
-    const eventosStr &#x3D; localStorage.getItem(&#x27;eventos&#x27;);
-    this.exposFuturas &#x3D; eventosStr ? JSON.parse(eventosStr) : [];
-
-    // Si no hay eventos, carga los iniciales
-    if (this.exposFuturas.length &#x3D;&#x3D;&#x3D; 0) {
-      this.exposFuturas &#x3D; [...exposFuturas];
-      localStorage.setItem(&#x27;eventos&#x27;, JSON.stringify(this.exposFuturas));
-    }
+    this.http
+      .get&lt;any&gt;(&#x27;https://gonzalocaro.github.io/expos/exposiciones.json&#x27;)
+      .subscribe({
+        next: (data) &#x3D;&gt; {
+          this.exposFuturas &#x3D; data.exposFuturas;
+          localStorage.setItem(&#x27;eventos&#x27;, JSON.stringify(this.exposFuturas));
+        },
+        error: (err) &#x3D;&gt; {
+          console.error(&#x27;Error cargando eventos desde GitHub Pages:&#x27;, err);
+        },
+      });
   }
 
   /**

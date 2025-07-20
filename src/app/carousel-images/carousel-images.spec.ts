@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CarouselImagesComponent } from './carousel-images.component';
+import { NgbCarouselModule, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
-import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Mock del componente NgbCarousel
 class MockNgbCarousel {
@@ -16,12 +17,33 @@ describe('CarouselImagesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CarouselImagesComponent],
-      imports: [NgbCarouselModule],
+      imports: [
+        NgbCarouselModule,
+        HttpClientTestingModule, // Importante: mock de HttpClient
+      ],
       providers: [{ provide: NgbCarousel, useClass: MockNgbCarousel }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CarouselImagesComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CarouselImagesComponent);
+    component = fixture.componentInstance;
+
+    // Simula 3 exposiciones pasadas
+    component.exposPasadas = [
+      {
+        title: 'Exposición 1',
+        src: 'img1.jpg',
+        description: '',
+      },
+      { title: 'Exposición 2', src: 'img2.jpg', description: '' },
+      { title: 'Exposición 3', src: 'img3.jpg', description: '' },
+    ];
+
     fixture.detectChanges();
   });
 
@@ -34,11 +56,5 @@ describe('CarouselImagesComponent', () => {
     expect(component.pauseOnFocus).toBeTrue();
     expect(component.unpauseOnArrow).toBeFalse();
     expect(component.pauseOnIndicator).toBeFalse();
-  });
-
-  // Pruebas que no requieren renderizado del carrusel
-  it('should have correct exposPasadas data', () => {
-    expect(component.exposPasadas.length).toBe(3);
-    expect(component.exposPasadas[0].title).toBe('Dia de los Patrimonios');
   });
 });

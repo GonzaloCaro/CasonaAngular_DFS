@@ -134,6 +134,12 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
     </p>
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -229,6 +235,9 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
                                 <a href="#onSlide" >onSlide</a>
                             </li>
                             <li>
@@ -246,6 +255,54 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
     </table>
 </section>
 
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/carousel-images/carousel-images.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -256,6 +313,43 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/carousel-images/carousel-images.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -441,28 +535,12 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[
-    {
-      src: &#x27;../assets/img/expo24y25_mayo.png&#x27;,
-      title: &#x27;Dia de los Patrimonios&#x27;,
-      description: &#x27;&#x27;,
-    },
-    {
-      src: &#x27;../assets/img/expo22_mayo.png&#x27;,
-      title: &#x27;Junta Dark Moon&#x27;,
-      description: &#x27;&#x27;,
-    },
-    {
-      src: &#x27;../assets/img/expo17y18_mayo.png&#x27;,
-      title: &#x27;Expo Etherica&#x27;,
-      description: &#x27;&#x27;,
-    },
-  ]</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/carousel-images/carousel-images.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/carousel-images/carousel-images.component.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -636,7 +714,8 @@ Utiliza el módulo NgbCarousel de ng-bootstrap para la funcionalidad del carruse
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import {
   NgbCarousel,
   NgbSlideEvent,
@@ -667,28 +746,27 @@ interface Expos {
   templateUrl: &#x27;./carousel-images.component.html&#x27;,
   styleUrls: [&#x27;./carousel-images.component.css&#x27;],
 })
-export class CarouselImagesComponent {
+export class CarouselImagesComponent implements OnInit {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http
+      .get&lt;any&gt;(&#x27;https://gonzalocaro.github.io/expos/exposiciones.json&#x27;)
+      .subscribe({
+        next: (data) &#x3D;&gt; {
+          this.exposPasadas &#x3D; data.exposPasadas;
+        },
+        error: (err) &#x3D;&gt; {
+          console.error(&#x27;Error al cargar expos pasadas:&#x27;, err);
+        },
+      });
+  }
+
   /**
    * Lista de exposiciones pasadas a mostrar en el carrusel
    * @type {Expos[]}
    */
-  exposPasadas: Expos[] &#x3D; [
-    {
-      src: &#x27;../assets/img/expo24y25_mayo.png&#x27;,
-      title: &#x27;Dia de los Patrimonios&#x27;,
-      description: &#x27;&#x27;,
-    },
-    {
-      src: &#x27;../assets/img/expo22_mayo.png&#x27;,
-      title: &#x27;Junta Dark Moon&#x27;,
-      description: &#x27;&#x27;,
-    },
-    {
-      src: &#x27;../assets/img/expo17y18_mayo.png&#x27;,
-      title: &#x27;Expo Etherica&#x27;,
-      description: &#x27;&#x27;,
-    },
-  ];
+  exposPasadas: Expos[] &#x3D; [];
 
   /**
    * Indica si el carrusel está pausado
